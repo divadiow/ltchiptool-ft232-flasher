@@ -1,0 +1,25 @@
+[tool.poetry]
+name = "ltchiptool-ft232-flasher"
+version = "1.0.0"
+description = "FT232/FT2232 flasher tool plugin for ltchiptool"
+authors = ["Kuba Szczodrzyński <kuba@szczodrzynski.pl>"]
+license = "MIT"
+readme = "README.md"
+packages = [
+    { include = "ltctplugin/ftflasher" },
+]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+pyftdi = "^0.55.0"
+pyftdi-bitbang = "^1.0.0"
+pyspiflash = "^0.6.3"
+
+[tool.poetry.group.dev.dependencies]
+black = "^23.3.0"
+isort = "^5.12.0"
+autoflake = "^2.1.1"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

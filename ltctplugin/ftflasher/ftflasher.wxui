@@ -1,0 +1,315 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wxUiEditorData
+  data_version="15">
+  <node
+    class="Project">
+    <node
+      class="PanelForm"
+      class_name="FlasherPanel"
+      mockup_size="500,500">
+      <node
+        class="wxBoxSizer"
+        orientation="wxVERTICAL"
+        var_name="box_sizer_4">
+        <node
+          class="wxFlexGridSizer"
+          growablecols="1"
+          borders=""
+          flags="wxEXPAND">
+          <node
+            class="wxStaticText"
+            label="Device"
+            alignment="wxALIGN_CENTER_VERTICAL" />
+          <node
+            class="wxBoxSizer"
+            var_name="box_sizer_5"
+            flags="wxEXPAND">
+            <node
+              class="wxComboBox"
+              style="wxCB_READONLY"
+              var_name="combo_device"
+              borders=""
+              proportion="1" />
+            <node
+              class="wxButton"
+              label="Rescan"
+              var_name="button_rescan"
+              borders="wxLEFT"
+              flags="wxEXPAND" />
+          </node>
+          <node
+            class="wxStaticText"
+            label="Mode"
+            var_name="m_staticText_2"
+            alignment="wxALIGN_CENTER_VERTICAL" />
+          <node
+            class="wxBoxSizer"
+            borders="">
+            <node
+              class="wxRadioButton"
+              checked="1"
+              label="Bitbang (sync)"
+              style="wxRB_GROUP"
+              var_name="radio_mode_sync" />
+            <node
+              class="wxRadioButton"
+              label="Bitbang (async)"
+              var_name="radio_mode_async" />
+            <node
+              class="wxRadioButton"
+              label="MPSSE"
+              var_name="radio_mode_mpsse" />
+          </node>
+          <node
+            class="wxStaticText"
+            label="Frequency"
+            var_name="m_staticText_4"
+            alignment="wxALIGN_CENTER_VERTICAL" />
+          <node
+            class="wxBoxSizer"
+            var_name="box_sizer_6"
+            borders=""
+            flags="wxEXPAND">
+            <node
+              class="wxRadioButton"
+              checked="1"
+              label="100 000"
+              style="wxRB_GROUP"
+              var_name="radio_freq_1"
+              proportion="1" />
+            <node
+              class="wxRadioButton"
+              label="500 000"
+              var_name="radio_freq_2"
+              proportion="1" />
+            <node
+              class="wxRadioButton"
+              label="1 000 000"
+              var_name="radio_freq_3"
+              proportion="1" />
+            <node
+              class="wxRadioButton"
+              label="1 500 000"
+              var_name="radio_freq_4"
+              proportion="1" />
+            <node
+              class="wxRadioButton"
+              label="2 000 000"
+              var_name="radio_freq_5"
+              proportion="1" />
+          </node>
+        </node>
+        <node
+          class="wxNotebook"
+          var_name="notebook"
+          flags="wxEXPAND">
+          <node
+            class="BookPage"
+            label="SPI Flash"
+            var_name="page_spi"
+            background_colour="wxSYS_COLOUR_BTNFACE"
+            window_style="wxTAB_TRAVERSAL">
+            <node
+              class="wxBoxSizer"
+              orientation="wxVERTICAL"
+              var_name="page_sizer">
+              <node
+                class="wxStaticText"
+                label="Operation"
+                var_name="m_staticText_3"
+                borders="wxTOP|wxRIGHT|wxLEFT"
+                colspan="2"
+                row="2" />
+              <node
+                class="wxBoxSizer"
+                var_name="box_sizer_3"
+                borders="wxBOTTOM"
+                flags="wxEXPAND">
+                <node
+                  class="wxRadioButton"
+                  checked="1"
+                  label="Read chip ID"
+                  style="wxRB_GROUP"
+                  var_name="radio_spi_read_id"
+                  proportion="1" />
+                <node
+                  class="wxRadioButton"
+                  label="Read flash"
+                  var_name="radio_spi_read"
+                  proportion="1" />
+                <node
+                  class="wxRadioButton"
+                  label="Write flash"
+                  var_name="radio_spi_write"
+                  proportion="1" />
+                <node
+                  class="wxRadioButton"
+                  label="Erase flash"
+                  var_name="radio_spi_erase"
+                  proportion="1" />
+              </node>
+            </node>
+          </node>
+        </node>
+        <node
+          class="wxStaticText"
+          label="Input file"
+          var_name="text_file"
+          row="3" />
+        <node
+          class="wxBoxSizer"
+          var_name="box_sizer_2"
+          borders=""
+          flags="wxEXPAND">
+          <node
+            class="wxTextCtrl"
+            var_name="input_file"
+            borders="wxBOTTOM|wxRIGHT|wxLEFT"
+            column="1"
+            proportion="1"
+            row="3" />
+          <node
+            class="wxButton"
+            label="Browse"
+            var_name="button_browse"
+            borders="wxBOTTOM|wxRIGHT"
+            column="2"
+            flags="wxEXPAND"
+            row="3" />
+        </node>
+        <node
+          class="wxGridSizer"
+          cols="3"
+          var_name="sizer_params"
+          borders=""
+          column="1"
+          flags="wxEXPAND"
+          row="6">
+          <node
+            class="wxStaticText"
+            label="Start address"
+            var_name="text_offset"
+            colspan="2"
+            row="2" />
+          <node
+            class="wxStaticText"
+            label="Skip offset (input file)"
+            var_name="text_skip"
+            colspan="2"
+            column="2"
+            row="2" />
+          <node
+            class="wxStaticText"
+            label="Reading length"
+            var_name="text_length"
+            colspan="2"
+            column="4"
+            row="2" />
+          <node
+            class="wxTextCtrl"
+            hint="0x0"
+            var_name="input_offset"
+            borders="wxBOTTOM|wxRIGHT|wxLEFT"
+            colspan="2"
+            flags="wxEXPAND"
+            row="3" />
+          <node
+            class="wxTextCtrl"
+            hint="0x0"
+            var_name="input_skip"
+            borders="wxBOTTOM|wxRIGHT|wxLEFT"
+            colspan="2"
+            column="2"
+            flags="wxEXPAND"
+            row="3" />
+          <node
+            class="wxTextCtrl"
+            hint="All data"
+            var_name="input_length"
+            borders="wxBOTTOM|wxRIGHT|wxLEFT"
+            colspan="2"
+            column="4"
+            flags="wxEXPAND"
+            row="3" />
+        </node>
+        <node
+          class="wxGridSizer"
+          var_name="sizer_buttons"
+          border_size="0"
+          column="1"
+          flags="wxEXPAND"
+          row="7">
+          <node
+            class="wxCommandLinkButton"
+            main_label="Start"
+            note="-"
+            var_name="button_start"
+            column="1"
+            flags="wxEXPAND"
+            row="7" />
+          <node
+            class="wxCommandLinkButton"
+            main_label="Cancel"
+            note="-"
+            var_name="button_cancel"
+            disabled="1"
+            column="1"
+            flags="wxEXPAND"
+            row="7" />
+        </node>
+      </node>
+    </node>
+    <node
+      class="PanelForm"
+      class_name="GpioChooserPanel">
+      <node
+        class="wxBoxSizer"
+        orientation="wxVERTICAL"
+        flags="wxEXPAND">
+        <node
+          class="wxStaticText"
+          label="GPIO"
+          var_name="text_gpio"
+          borders="wxTOP|wxRIGHT|wxLEFT" />
+        <node
+          class="wxGridSizer"
+          cols="8"
+          borders=""
+          flags="wxEXPAND">
+          <node
+            class="wxRadioButton"
+            label="TXD (0)"
+            style="wxRB_GROUP" />
+          <node
+            class="wxRadioButton"
+            label="RXD (1)"
+            var_name="m_radioBtn_2" />
+          <node
+            class="wxRadioButton"
+            label="RTS (2)"
+            var_name="m_radioBtn_3" />
+          <node
+            class="wxRadioButton"
+            label="CTS (3)"
+            var_name="m_radioBtn_4" />
+          <node
+            class="wxRadioButton"
+            label="DTR (4)"
+            var_name="m_radioBtn_5" />
+          <node
+            class="wxRadioButton"
+            label="DSR (5)"
+            var_name="m_radioBtn_6" />
+          <node
+            class="wxRadioButton"
+            label="DCD (6)"
+            var_name="m_radioBtn_7" />
+          <node
+            class="wxRadioButton"
+            label="RI (7)"
+            var_name="m_radioBtn_8" />
+        </node>
+      </node>
+    </node>
+  </node>
+</wxUiEditorData>

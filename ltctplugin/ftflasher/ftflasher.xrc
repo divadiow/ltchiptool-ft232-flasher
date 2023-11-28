@@ -1,0 +1,404 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resource xmlns="http://www.wxwidgets.org/wxxrc" version="2.5.3.0">
+	<object class="wxPanel" name="FlasherPanel">
+		<style>wxTAB_TRAVERSAL</style>
+		<object class="wxBoxSizer" name="box_sizer_4">
+			<orient>wxVERTICAL</orient>
+			<object class="sizeritem">
+				<flag>wxEXPAND</flag>
+				<border>5</border>
+				<object class="wxFlexGridSizer" name="flex_grid_sizer">
+					<rows>0</rows>
+					<cols>2</cols>
+					<vgap>0</vgap>
+					<hgap>0</hgap>
+					<growablecols>1</growablecols>
+					<flexibledirection>wxBOTH</flexibledirection>
+					<nonflexiblegrowmode>wxFLEX_GROWMODE_SPECIFIED</nonflexiblegrowmode>
+					<object class="sizeritem">
+						<flag>wxALL|wxALIGN_CENTER_VERTICAL</flag>
+						<border>5</border>
+						<object class="wxStaticText" name="m_staticText">
+							<label>Device</label>
+							<wrap>-1</wrap>
+						</object>
+					</object>
+					<object class="sizeritem">
+						<flag>wxALL|wxEXPAND</flag>
+						<border>5</border>
+						<object class="wxBoxSizer" name="box_sizer_5">
+							<orient>wxHORIZONTAL</orient>
+							<object class="sizeritem">
+								<flag></flag>
+								<border>5</border>
+								<option>1</option>
+								<object class="wxComboBox" name="combo_device">
+									<style>wxCB_READONLY</style>
+								</object>
+							</object>
+							<object class="sizeritem">
+								<flag>wxLEFT|wxEXPAND</flag>
+								<border>5</border>
+								<object class="wxButton" name="button_rescan">
+									<label>Rescan</label>
+								</object>
+							</object>
+						</object>
+					</object>
+					<object class="sizeritem">
+						<flag>wxALL|wxALIGN_CENTER_VERTICAL</flag>
+						<border>5</border>
+						<object class="wxStaticText" name="m_staticText_2">
+							<label>Mode</label>
+							<wrap>-1</wrap>
+						</object>
+					</object>
+					<object class="sizeritem">
+						<flag></flag>
+						<border>5</border>
+						<object class="wxBoxSizer" name="box_sizer">
+							<orient>wxHORIZONTAL</orient>
+							<object class="sizeritem">
+								<flag>wxALL</flag>
+								<border>5</border>
+								<object class="wxRadioButton" name="radio_mode_sync">
+									<label>Bitbang (sync)</label>
+									<value>1</value>
+									<style>wxRB_GROUP</style>
+								</object>
+							</object>
+							<object class="sizeritem">
+								<flag>wxALL</flag>
+								<border>5</border>
+								<object class="wxRadioButton" name="radio_mode_async">
+									<label>Bitbang (async)</label>
+								</object>
+							</object>
+							<object class="sizeritem">
+								<flag>wxALL</flag>
+								<border>5</border>
+								<object class="wxRadioButton" name="radio_mode_mpsse">
+									<label>MPSSE</label>
+								</object>
+							</object>
+						</object>
+					</object>
+					<object class="sizeritem">
+						<flag>wxALL|wxALIGN_CENTER_VERTICAL</flag>
+						<border>5</border>
+						<object class="wxStaticText" name="m_staticText_4">
+							<label>Frequency</label>
+							<wrap>-1</wrap>
+						</object>
+					</object>
+					<object class="sizeritem">
+						<flag>wxEXPAND</flag>
+						<border>5</border>
+						<object class="wxBoxSizer" name="box_sizer_6">
+							<orient>wxHORIZONTAL</orient>
+							<object class="sizeritem">
+								<flag>wxALL</flag>
+								<border>5</border>
+								<option>1</option>
+								<object class="wxRadioButton" name="radio_freq_1">
+									<label>100 000</label>
+									<value>1</value>
+									<style>wxRB_GROUP</style>
+								</object>
+							</object>
+							<object class="sizeritem">
+								<flag>wxALL</flag>
+								<border>5</border>
+								<option>1</option>
+								<object class="wxRadioButton" name="radio_freq_2">
+									<label>500 000</label>
+								</object>
+							</object>
+							<object class="sizeritem">
+								<flag>wxALL</flag>
+								<border>5</border>
+								<option>1</option>
+								<object class="wxRadioButton" name="radio_freq_3">
+									<label>1 000 000</label>
+								</object>
+							</object>
+							<object class="sizeritem">
+								<flag>wxALL</flag>
+								<border>5</border>
+								<option>1</option>
+								<object class="wxRadioButton" name="radio_freq_4">
+									<label>1 500 000</label>
+								</object>
+							</object>
+							<object class="sizeritem">
+								<flag>wxALL</flag>
+								<border>5</border>
+								<option>1</option>
+								<object class="wxRadioButton" name="radio_freq_5">
+									<label>2 000 000</label>
+								</object>
+							</object>
+						</object>
+					</object>
+				</object>
+			</object>
+			<object class="sizeritem">
+				<flag>wxALL|wxEXPAND</flag>
+				<border>5</border>
+				<object class="wxNotebook" name="notebook">
+					<object>
+						<label>SPI Flash</label>
+						<style>wxTAB_TRAVERSAL</style>
+						<bg>#F0F0F0</bg>
+						<object class="wxPanel" name="page_spi">
+							<style>wxTAB_TRAVERSAL</style>
+							<object class="wxBoxSizer" name="page_sizer">
+								<orient>wxVERTICAL</orient>
+								<object class="sizeritem">
+									<flag>wxTOP|wxRIGHT|wxLEFT</flag>
+									<border>5</border>
+									<object class="wxStaticText" name="m_staticText_3">
+										<label>Operation</label>
+										<wrap>-1</wrap>
+									</object>
+								</object>
+								<object class="sizeritem">
+									<flag>wxBOTTOM|wxEXPAND</flag>
+									<border>5</border>
+									<object class="wxBoxSizer" name="box_sizer_3">
+										<orient>wxHORIZONTAL</orient>
+										<object class="sizeritem">
+											<flag>wxALL</flag>
+											<border>5</border>
+											<option>1</option>
+											<object class="wxRadioButton" name="radio_spi_read_id">
+												<label>Read chip ID</label>
+												<value>1</value>
+												<style>wxRB_GROUP</style>
+											</object>
+										</object>
+										<object class="sizeritem">
+											<flag>wxALL</flag>
+											<border>5</border>
+											<option>1</option>
+											<object class="wxRadioButton" name="radio_spi_read">
+												<label>Read flash</label>
+											</object>
+										</object>
+										<object class="sizeritem">
+											<flag>wxALL</flag>
+											<border>5</border>
+											<option>1</option>
+											<object class="wxRadioButton" name="radio_spi_write">
+												<label>Write flash</label>
+											</object>
+										</object>
+										<object class="sizeritem">
+											<flag>wxALL</flag>
+											<border>5</border>
+											<option>1</option>
+											<object class="wxRadioButton" name="radio_spi_erase">
+												<label>Erase flash</label>
+											</object>
+										</object>
+									</object>
+								</object>
+							</object>
+						</object>
+					</object>
+				</object>
+			</object>
+			<object class="sizeritem">
+				<flag>wxALL</flag>
+				<border>5</border>
+				<object class="wxStaticText" name="text_file">
+					<label>Input file</label>
+					<wrap>-1</wrap>
+				</object>
+			</object>
+			<object class="sizeritem">
+				<flag>wxEXPAND</flag>
+				<border>5</border>
+				<object class="wxBoxSizer" name="box_sizer_2">
+					<orient>wxHORIZONTAL</orient>
+					<object class="sizeritem">
+						<flag>wxBOTTOM|wxRIGHT|wxLEFT</flag>
+						<border>5</border>
+						<option>1</option>
+						<object class="wxTextCtrl" name="input_file" />
+					</object>
+					<object class="sizeritem">
+						<flag>wxBOTTOM|wxRIGHT|wxEXPAND</flag>
+						<border>5</border>
+						<object class="wxButton" name="button_browse">
+							<label>Browse</label>
+						</object>
+					</object>
+				</object>
+			</object>
+			<object class="sizeritem">
+				<flag>wxEXPAND</flag>
+				<border>5</border>
+				<object class="wxGridSizer" name="sizer_params">
+					<rows>0</rows>
+					<cols>3</cols>
+					<vgap>0</vgap>
+					<hgap>0</hgap>
+					<object class="sizeritem">
+						<flag>wxALL</flag>
+						<border>5</border>
+						<object class="wxStaticText" name="text_offset">
+							<label>Start address</label>
+							<wrap>-1</wrap>
+						</object>
+					</object>
+					<object class="sizeritem">
+						<flag>wxALL</flag>
+						<border>5</border>
+						<object class="wxStaticText" name="text_skip">
+							<label>Skip offset (input file)</label>
+							<wrap>-1</wrap>
+						</object>
+					</object>
+					<object class="sizeritem">
+						<flag>wxALL</flag>
+						<border>5</border>
+						<object class="wxStaticText" name="text_length">
+							<label>Reading length</label>
+							<wrap>-1</wrap>
+						</object>
+					</object>
+					<object class="sizeritem">
+						<flag>wxBOTTOM|wxRIGHT|wxLEFT|wxEXPAND</flag>
+						<border>5</border>
+						<object class="wxTextCtrl" name="input_offset">
+							<hint>0x0</hint>
+						</object>
+					</object>
+					<object class="sizeritem">
+						<flag>wxBOTTOM|wxRIGHT|wxLEFT|wxEXPAND</flag>
+						<border>5</border>
+						<object class="wxTextCtrl" name="input_skip">
+							<hint>0x0</hint>
+						</object>
+					</object>
+					<object class="sizeritem">
+						<flag>wxBOTTOM|wxRIGHT|wxLEFT|wxEXPAND</flag>
+						<border>5</border>
+						<object class="wxTextCtrl" name="input_length">
+							<hint>All data</hint>
+						</object>
+					</object>
+				</object>
+			</object>
+			<object class="sizeritem">
+				<flag>wxALL|wxEXPAND</flag>
+				<border>0</border>
+				<object class="wxGridSizer" name="sizer_buttons">
+					<rows>0</rows>
+					<cols>2</cols>
+					<vgap>0</vgap>
+					<hgap>0</hgap>
+					<object class="sizeritem">
+						<flag>wxALL|wxEXPAND</flag>
+						<border>5</border>
+						<object class="wxCommandLinkButton" name="button_start">
+							<label>Start</label>
+							<note>-</note>
+						</object>
+					</object>
+					<object class="sizeritem">
+						<flag>wxALL|wxEXPAND</flag>
+						<border>5</border>
+						<object class="wxCommandLinkButton" name="button_cancel">
+							<label>Cancel</label>
+							<note>-</note>
+							<enabled>0</enabled>
+						</object>
+					</object>
+				</object>
+			</object>
+		</object>
+	</object>
+	<object class="wxPanel" name="GpioChooserPanel">
+		<style>wxTAB_TRAVERSAL</style>
+		<object class="wxBoxSizer" name="box_sizer">
+			<orient>wxVERTICAL</orient>
+			<object class="sizeritem">
+				<flag>wxTOP|wxRIGHT|wxLEFT</flag>
+				<border>5</border>
+				<object class="wxStaticText" name="text_gpio">
+					<label>GPIO</label>
+					<wrap>-1</wrap>
+				</object>
+			</object>
+			<object class="sizeritem">
+				<flag>wxEXPAND</flag>
+				<border>5</border>
+				<object class="wxGridSizer" name="grid_sizer">
+					<rows>0</rows>
+					<cols>8</cols>
+					<vgap>0</vgap>
+					<hgap>0</hgap>
+					<object class="sizeritem">
+						<flag>wxALL</flag>
+						<border>5</border>
+						<object class="wxRadioButton" name="m_radioBtn">
+							<label>TXD (0)</label>
+							<style>wxRB_GROUP</style>
+						</object>
+					</object>
+					<object class="sizeritem">
+						<flag>wxALL</flag>
+						<border>5</border>
+						<object class="wxRadioButton" name="m_radioBtn_2">
+							<label>RXD (1)</label>
+						</object>
+					</object>
+					<object class="sizeritem">
+						<flag>wxALL</flag>
+						<border>5</border>
+						<object class="wxRadioButton" name="m_radioBtn_3">
+							<label>RTS (2)</label>
+						</object>
+					</object>
+					<object class="sizeritem">
+						<flag>wxALL</flag>
+						<border>5</border>
+						<object class="wxRadioButton" name="m_radioBtn_4">
+							<label>CTS (3)</label>
+						</object>
+					</object>
+					<object class="sizeritem">
+						<flag>wxALL</flag>
+						<border>5</border>
+						<object class="wxRadioButton" name="m_radioBtn_5">
+							<label>DTR (4)</label>
+						</object>
+					</object>
+					<object class="sizeritem">
+						<flag>wxALL</flag>
+						<border>5</border>
+						<object class="wxRadioButton" name="m_radioBtn_6">
+							<label>DSR (5)</label>
+						</object>
+					</object>
+					<object class="sizeritem">
+						<flag>wxALL</flag>
+						<border>5</border>
+						<object class="wxRadioButton" name="m_radioBtn_7">
+							<label>DCD (6)</label>
+						</object>
+					</object>
+					<object class="sizeritem">
+						<flag>wxALL</flag>
+						<border>5</border>
+						<object class="wxRadioButton" name="m_radioBtn_8">
+							<label>RI (7)</label>
+						</object>
+					</object>
+				</object>
+			</object>
+		</object>
+	</object>
+</resource>
