@@ -32,7 +32,7 @@ class FlasherPanel(FileDumpBase, DevicesBase):
         self.devices = []
 
         self.Device = self.BindComboBox("combo_device")
-        self.Rescan = self.BindButton("button_rescan", self.OnRescanClick)
+        self.Rescan = self.BindButton("button_rescan", self.CallDeviceWatcher)
 
         self.FileText = self.FindStaticText("text_file")
         self.File = self.BindTextCtrl("input_file")
@@ -144,8 +144,7 @@ class FlasherPanel(FileDumpBase, DevicesBase):
         length: int | None = None,
         **kwargs,
     ) -> None:
-        if device:
-            self.device = device
+        self.device = device
         if mode:
             self.mode = FtdiMode(mode)
         if frequency:
@@ -277,16 +276,16 @@ class FlasherPanel(FileDumpBase, DevicesBase):
                 supported = False
             devices.append((url, description, supported))
 
-        user_device = self.device or self.last_device
+        user_device = self.device
         auto_device = None
 
-        for url, description, supported in set(devices) - set(self.devices):
+        for device, description, supported in set(devices) - set(self.devices):
             info(f"Found new device: {description}")
             if not supported:
                 warning("Device driver NOT supported for FTDI flashing!")
                 warning("Please install a libusbK driver (use Zadig on Windows)")
             if supported:
-                auto_device = url
+                auto_device = device
         for _, description, _ in set(self.devices) - set(devices):
             info(f"Device unplugged: {description}")
 
@@ -294,15 +293,12 @@ class FlasherPanel(FileDumpBase, DevicesBase):
         if devices:
             self.Device.Set([device[1] for device in devices])
             self.devices = devices
-            self.device = user_device or auto_device
+            self.device = user_device or auto_device or self.last_device
         else:
             self.Device.Set(["No FTDI devices found"])
             self.Device.SetSelection(0)
             self.devices = []
-
-    @on_event
-    def OnRescanClick(self) -> None:
-        self.OnDevicesUpdated()
+            self.DoUpdate(self.Device)
 
     @property
     def filename_stem(self) -> str:
@@ -314,21 +310,23 @@ class FlasherPanel(FileDumpBase, DevicesBase):
             return None
         if self.Device.GetSelection() == wx.NOT_FOUND:
             return None
-        return self.devices[self.Device.GetSelection()][0]
+        try:
+            return self.devices[self.Device.GetSelection()][0]
+        except IndexError:
+            return None
 
     @device.setter
     def device(self, value: str | None) -> None:
         if value is None:
             self.Device.SetSelection(wx.NOT_FOUND)
         else:
-            for url, description, _ in self.devices:
-                if value == url:
+            for device, description, _ in self.devices:
+                if value == device:
                     self.Device.SetValue(description)
-                    self.last_device = None
                     self.DoUpdate(self.Device)
                     return
             self.last_device = value
-            self.DoUpdate(self.Device)
+        self.DoUpdate(self.Device)
 
     @property
     def device_supported(self) -> bool:
