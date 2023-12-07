@@ -104,8 +104,19 @@ class FlasherPanel(FileDumpBase, DevicesBase):
             SpiOperation.ERASE: self.BindRadioButton("radio_spi_erase"),
         }
 
+        page_bk72xx: wx.NotebookPage = self.BindWindow("page_bk72xx")
+        self.Bk72xxGpio = GpioChooserPanel(
+            parent=page_bk72xx,
+            frame=frame,
+            names=["sck", "mosi", "miso", "cs", "cen"],
+            labels=["TCK / F_SCK", "TDI / F_SI", "TDO / F_SO", "TMS / F_CS", "CEN"],
+            default=[SCK, MOSI, MISO, CS0, 4],
+        )
+        page_bk72xx.GetSizer().Insert(0, self.Bk72xxGpio, flag=wx.EXPAND)
+
         self.Protocols = {
             ProtocolType.SPI: page_spi,
+            ProtocolType.BK72XX: page_bk72xx,
         }
 
         self.EnableFileDrop()
@@ -133,6 +144,9 @@ class FlasherPanel(FileDumpBase, DevicesBase):
                 gpio=self.spi_gpio,
                 operation=self.spi_operation.value,
             ),
+            bk72xx=dict(
+                gpio=self.bk72xx_gpio,
+            ),
             **self.GetFileSettings(),
         )
 
@@ -143,6 +157,7 @@ class FlasherPanel(FileDumpBase, DevicesBase):
         frequency: int = None,
         protocol: str = None,
         spi: dict = None,
+        bk72xx: dict = None,
         offset: int = None,
         skip: int = None,
         length: int | None = None,
@@ -164,6 +179,9 @@ class FlasherPanel(FileDumpBase, DevicesBase):
                 self.spi_gpio = spi["gpio"]
             if "operation" in spi:
                 self.spi_operation = SpiOperation(spi["operation"])
+        if bk72xx:
+            if "gpio" in spi:
+                self.bk72xx_gpio = spi["gpio"]
         self.SetFileSettings(**kwargs)
 
     def OnActivate(self) -> None:
@@ -257,6 +275,12 @@ class FlasherPanel(FileDumpBase, DevicesBase):
         else:
             self.SpiGpio.SetChoice(SCK=SCK, MISO=MISO, MOSI=MOSI)
             self.SpiGpio.EnablePins("cs")
+
+        if mode != FtdiMode.MPSSE:
+            self.Bk72xxGpio.EnablePins()
+        else:
+            self.Bk72xxGpio.SetChoice(SCK=SCK, MISO=MISO, MOSI=MOSI)
+            self.Bk72xxGpio.EnablePins("cs", "cen")
 
         if errors:
             self.Start.SetNote(errors[0])
@@ -505,6 +529,15 @@ class FlasherPanel(FileDumpBase, DevicesBase):
                     **kwargs,
                 )
 
+            case ProtocolType.BK72XX:
+                from .work.bk72xx_boot import Bk72xxBootThread
+
+                self.work = Bk72xxBootThread(
+                    gpio=self.bk72xx_gpio,
+                    on_chip_info_full=self.OnChipInfoFull,
+                    **kwargs,
+                )
+
         self.StartWork(self.work)
         self.Start.SetNote("")
         self.Cancel.Enable()
@@ -530,3 +563,11 @@ class FlasherPanel(FileDumpBase, DevicesBase):
     @spi_operation.setter
     def spi_operation(self, value: SpiOperation) -> None:
         self.SpiOperations[value].SetValue(True)
+
+    @property
+    def bk72xx_gpio(self) -> dict[str, int]:
+        return self.Bk72xxGpio.GetChoice()
+
+    @bk72xx_gpio.setter
+    def bk72xx_gpio(self, value: dict[str, int]) -> None:
+        self.Bk72xxGpio.SetChoice(**value)

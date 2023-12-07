@@ -11,6 +11,7 @@ class FtdiMode(Enum):
 
 class ProtocolType(Enum):
     SPI = "spi"
+    BK72XX = "bk72xx"
 
 
 class SpiOperation(Enum):

@@ -206,6 +206,30 @@
 							</object>
 						</object>
 					</object>
+					<object>
+						<label>BK72xx SPI Boot</label>
+						<style>wxTAB_TRAVERSAL</style>
+						<bg>#F0F0F0</bg>
+						<object class="wxPanel" name="page_bk72xx">
+							<style>wxTAB_TRAVERSAL</style>
+							<object class="wxBoxSizer" name="page_sizer_2">
+								<orient>wxVERTICAL</orient>
+								<object class="sizeritem">
+									<flag>wxTOP|wxRIGHT|wxLEFT</flag>
+									<border>5</border>
+									<object class="wxStaticText" name="m_staticText_5">
+										<label>This option allows to boot a Beken BK72xx chip into SPI Flash Download Mode, by using the JTAG pins
+as a special SPI interface. It is therefore necessary to connect the programmer to the JTAG interface,
+as well as to the CEN pin for precise timing of the reboot. In Download Mode the chip will pass-through
+all SPI operations to the internal flash chip, allowing direct access to its contents.
+
+Press Start, let the chip enter download mode, then use the "SPI Flash" tab to flash the chip.</label>
+										<wrap>-1</wrap>
+									</object>
+								</object>
+							</object>
+						</object>
+					</object>
 				</object>
 			</object>
 			<object class="sizeritem">

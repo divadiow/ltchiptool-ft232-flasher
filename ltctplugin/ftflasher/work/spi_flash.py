@@ -43,6 +43,7 @@ class SpiFlashThread(BaseThread):
         length: int | None,
         on_chip_info_summary: Callable[[str], None],
         on_chip_info_full: Callable[[list[tuple[str, str]]], None],
+        **_,
     ):
         super().__init__()
         self.device = device
@@ -102,11 +103,11 @@ class SpiFlashThread(BaseThread):
             self.on_chip_info_summary(chip_info)
 
             if self.operation == SpiOperation.READ_ID:
-                info = [
+                chip_info = [
                     ("JEDEC ID", flash_id.hex(" ").upper()),
                     ("Device", self.flash and str(self.flash) or "Unknown"),
                 ]
-                self.on_chip_info_full(info)
+                self.on_chip_info_full(chip_info)
             else:
                 match self.operation:
                     case SpiOperation.READ:

@@ -68,6 +68,8 @@ class SpiFlashDevice(_Gen25FlashDevice):
 
     @classmethod
     def initialize(cls, chips_path: Path) -> None:
+        if cls.CHIPS:
+            return
         classes = sys.modules["spiflash.serialflash"].__dict__
         cls.CHIPS = {}
         with chips_path.open("r") as f:
