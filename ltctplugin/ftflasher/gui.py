@@ -88,15 +88,15 @@ class FlasherPanel(FileDumpBase, DevicesBase):
         }
         self.Notebook: wx.Notebook = self.BindWindow("notebook")
 
-        self.SpiPage: wx.NotebookPage = self.BindWindow("page_spi")
+        page_spi: wx.NotebookPage = self.BindWindow("page_spi")
         self.SpiGpio = GpioChooserPanel(
-            parent=self.SpiPage,
+            parent=page_spi,
             frame=frame,
             names=["sck", "mosi", "miso", "cs"],
             labels=["SCK / F_SCK", "MOSI / F_SI", "MISO / F_SO", "CS / F_CS"],
             default=[SCK, MOSI, MISO, CS0],
         )
-        self.SpiPage.GetSizer().Insert(0, self.SpiGpio, flag=wx.EXPAND)
+        page_spi.GetSizer().Insert(0, self.SpiGpio, flag=wx.EXPAND)
         self.SpiOperations = {
             SpiOperation.READ_ID: self.BindRadioButton("radio_spi_read_id"),
             SpiOperation.READ: self.BindRadioButton("radio_spi_read"),
@@ -105,7 +105,7 @@ class FlasherPanel(FileDumpBase, DevicesBase):
         }
 
         self.Protocols = {
-            ProtocolType.SPI: self.SpiPage,
+            ProtocolType.SPI: page_spi,
         }
 
         self.EnableFileDrop()
@@ -256,7 +256,7 @@ class FlasherPanel(FileDumpBase, DevicesBase):
             self.SpiGpio.EnablePins()
         else:
             self.SpiGpio.SetChoice(SCK=SCK, MISO=MISO, MOSI=MOSI)
-            self.SpiGpio.EnablePins("CS")
+            self.SpiGpio.EnablePins("cs")
 
         if errors:
             self.Start.SetNote(errors[0])
