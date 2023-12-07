@@ -21,7 +21,7 @@ from .types import FtdiMode, ProtocolType, SpiOperation
 class FlasherPanel(FileDumpBase, DevicesBase):
     prev_file: Path | None = None
     auto_file: Path | None = None
-    prev_state: tuple[bool, bool, bool] = None
+    prev_state: tuple[bool, bool, bool] | None = None
     devices: list[tuple[str, str, bool]]
     last_device: str | None = None
     work: BaseThread = None
@@ -158,6 +158,7 @@ class FlasherPanel(FileDumpBase, DevicesBase):
         self.offset = offset
         self.skip = skip
         self.length = length
+        self.prev_state = None  # clear previous state before setting new state
         if spi:
             if "gpio" in spi:
                 self.spi_gpio = spi["gpio"]
@@ -190,7 +191,7 @@ class FlasherPanel(FileDumpBase, DevicesBase):
             speed = speeds[mode]
             button.SetLabel(f"{speed:,}".replace(",", " "))
 
-        if self.prev_state != new_state:
+        if self.prev_state and self.prev_state != new_state:
             if reading:
                 # generate a new filename for reading, to prevent
                 # accidentally overwriting firmware files
@@ -208,6 +209,10 @@ class FlasherPanel(FileDumpBase, DevicesBase):
 
         errors = []
         warnings = []
+
+        if writing or erasing:
+            if self.offset % 0x1000:
+                errors.append(f"Offset (0x{self.offset:X}) is not 4 KiB-aligned")
 
         if writing:
             self.FileText.SetLabel("Input file")
@@ -237,6 +242,8 @@ class FlasherPanel(FileDumpBase, DevicesBase):
                 errors.append("Choose an output file")
             self.skip = 0
         elif erasing:
+            if self.length and self.length % 0x1000:
+                errors.append(f"Length (0x{self.length:X}) is not 4 KiB-aligned")
             self.LengthText.SetLabel("Erasing length")
             self.skip = 0
 
