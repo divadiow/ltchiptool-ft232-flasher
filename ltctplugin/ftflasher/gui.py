@@ -1,4 +1,4 @@
-#  Copyright (c) Kuba Szczodrzyński 2023-8-31.
+#  Copyright (c) Kuba Szczodrzyński 2023-11-29.
 
 from logging import info, warning
 from pathlib import Path
@@ -8,6 +8,8 @@ import wx.xrc
 from ltchiptool.gui.mixin.devices import DevicesBase
 from ltchiptool.gui.mixin.file_dump import FileDumpBase
 from ltchiptool.gui.utils import int_or_zero, on_event
+from ltchiptool.gui.work.base import BaseThread
+from prettytable import PrettyTable
 from pyftdi.ftdi import Ftdi
 from pyftdi.usbtools import UsbTools
 
@@ -22,6 +24,8 @@ class FlasherPanel(FileDumpBase, DevicesBase):
     prev_state: tuple[bool, bool, bool] = None
     devices: list[tuple[str, str, bool]]
     last_device: str | None = None
+    work: BaseThread = None
+    chip_info: list[tuple[str, str]] | None = None
 
     def __init__(self, parent: wx.Window, frame):
         super().__init__(parent, frame)
@@ -88,7 +92,7 @@ class FlasherPanel(FileDumpBase, DevicesBase):
         self.SpiGpio = GpioChooserPanel(
             parent=self.SpiPage,
             frame=frame,
-            names=["SCK", "MOSI", "MISO", "CS"],
+            names=["sck", "mosi", "miso", "cs"],
             labels=["SCK / F_SCK", "MOSI / F_SI", "MISO / F_SO", "CS / F_CS"],
             default=[SCK, MOSI, MISO, CS0],
         )
@@ -168,6 +172,14 @@ class FlasherPanel(FileDumpBase, DevicesBase):
         self.StopDeviceWatcher()
 
     def OnUpdate(self, target: wx.Window = None) -> None:
+        if self.chip_info:
+            chip_info = self.chip_info
+            self.chip_info = None
+            self.ShowChipInfo(chip_info)
+
+        if self.IsAnyWorkRunning():
+            return
+
         mode = self.mode
         reading = self.is_reading
         writing = self.is_writing
@@ -289,7 +301,8 @@ class FlasherPanel(FileDumpBase, DevicesBase):
         for _, description, _ in set(self.devices) - set(devices):
             info(f"Device unplugged: {description}")
 
-        self.Device.Enable(bool(devices))
+        if self.IsAnyWorkRunning():
+            self.Device.Enable(bool(devices))
         if devices:
             self.Device.Set([device[1] for device in devices])
             self.devices = devices
@@ -299,6 +312,20 @@ class FlasherPanel(FileDumpBase, DevicesBase):
             self.Device.SetSelection(0)
             self.devices = []
             self.DoUpdate(self.Device)
+
+    def OnChipInfoFull(self, chip_info: list[tuple[str, str]]):
+        self.chip_info = chip_info
+
+    def ShowChipInfo(self, chip_info: list[tuple[str, str]]):
+        table = PrettyTable()
+        table.field_names = ["Name", "Value"]
+        table.align = "l"
+        for key, value in chip_info:
+            table.add_row([key, value])
+        self.MessageDialogMonospace(
+            message=table.get_string(),
+            caption="Chip info",
+        )
 
     @property
     def filename_stem(self) -> str:
@@ -393,6 +420,8 @@ class FlasherPanel(FileDumpBase, DevicesBase):
         return False
 
     def set_writing(self) -> None:
+        if self.IsAnyWorkRunning():
+            return
         match self.protocol:
             case ProtocolType.SPI:
                 self.spi_operation = SpiOperation.WRITE
@@ -434,6 +463,49 @@ class FlasherPanel(FileDumpBase, DevicesBase):
         else:
             self.Length.SetValue("")
 
+    @on_event
+    def OnStartClick(self):
+        if self.is_reading:
+            self.regenerate_read_filename()
+            if self.file.is_file():
+                btn = wx.MessageBox(
+                    message=f"File already exists. Do you want to overwrite it?",
+                    caption="Warning",
+                    style=wx.ICON_WARNING | wx.YES_NO,
+                )
+                if btn != wx.YES:
+                    return
+
+        kwargs = dict(
+            device=self.device,
+            mode=self.mode,
+            frequency=self.frequency,
+            file=self.file,
+            offset=self.offset,
+            skip=self.skip,
+            length=self.length,
+        )
+
+        match self.protocol:
+            case ProtocolType.SPI:
+                from .work.spi_flash import SpiFlashThread
+
+                self.work = SpiFlashThread(
+                    gpio=self.spi_gpio,
+                    operation=self.spi_operation,
+                    on_chip_info_summary=self.Start.SetNote,
+                    on_chip_info_full=self.OnChipInfoFull,
+                    **kwargs,
+                )
+
+        self.StartWork(self.work)
+        self.Start.SetNote("")
+        self.Cancel.Enable()
+
+    @on_event
+    def OnCancelClick(self):
+        self.StopWork(type(self.work))
+
     @property
     def spi_gpio(self) -> dict[str, int]:
         return self.SpiGpio.GetChoice()
@@ -451,11 +523,3 @@ class FlasherPanel(FileDumpBase, DevicesBase):
     @spi_operation.setter
     def spi_operation(self, value: SpiOperation) -> None:
         self.SpiOperations[value].SetValue(True)
-
-    @on_event
-    def OnStartClick(self):
-        pass
-
-    @on_event
-    def OnCancelClick(self):
-        pass

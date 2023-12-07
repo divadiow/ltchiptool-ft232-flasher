@@ -1,0 +1,86 @@
+{
+	"0b4014": {
+		"vendor": "XTX Technology Limited",
+		"name": "XT25F08B",
+		"size": 1048576,
+		"page_size": 256,
+		"status_lock": [
+			"WRSR_WREN"
+		],
+		"unlock": "BP2_SRWD",
+		"features": [
+			"FEAT_SECTERASE",
+			"FEAT_CHIPERASE"
+		]
+	},
+	"0e4016": {
+		"vendor": "XTX Technology Limited",
+		"name": "XT25H32",
+		"size": 4194304,
+		"page_size": 256,
+		"status_lock": [
+			"WRSR_WREN"
+		],
+		"unlock": "BP2_SRWD",
+		"features": [
+			"FEAT_SECTERASE",
+			"FEAT_CHIPERASE"
+		]
+	},
+	"1c7016": {
+		"vendor": "ESMT",
+		"name": "EN25QH32B",
+		"size": 4194304,
+		"page_size": 256,
+		"status_lock": [
+			"WRSR_WREN"
+		],
+		"unlock": "BP2_SRWD",
+		"features": [
+			"FEAT_SECTERASE",
+			"FEAT_CHIPERASE"
+		]
+	},
+	"204016": {
+		"vendor": "ESMT",
+		"name": "EN25QH32B",
+		"size": 4194304,
+		"page_size": 256,
+		"status_lock": [
+			"WRSR_WREN"
+		],
+		"unlock": "BP2_SRWD",
+		"features": [
+			"FEAT_SECTERASE",
+			"FEAT_CHIPERASE"
+		]
+	},
+	"c22315": {
+		"vendor": "Macronix",
+		"name": "MX25V16B",
+		"size": 2097152,
+		"page_size": 256,
+		"status_lock": [
+			"WRSR_WREN"
+		],
+		"unlock": "BP1_SRWD",
+		"features": [
+			"FEAT_SECTERASE",
+			"FEAT_CHIPERASE"
+		]
+	},
+	"ef4016": {
+		"vendor": "Winbond",
+		"name": "W25Q32BFJ",
+		"size": 4194304,
+		"page_size": 256,
+		"status_lock": [
+			"WRSR_WREN"
+		],
+		"unlock": "BP2_SRWD",
+		"features": [
+			"FEAT_SECTERASE",
+			"FEAT_CHIPERASE"
+		]
+	}
+}

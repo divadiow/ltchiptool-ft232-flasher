@@ -51,7 +51,8 @@ class GpioChooserPanel(BasePanel):
 
     def SetChoice(self, **choice: int) -> None:
         for name, gpio in choice.items():
-            self.CheckRadioButton(self.Buttons[name][gpio])
+            if name in self.Buttons:
+                self.CheckRadioButton(self.Buttons[name][gpio])
         self.GetChoice()
 
     def GetChoice(self) -> dict[str, int]:

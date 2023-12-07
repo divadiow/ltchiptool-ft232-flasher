@@ -1,0 +1,436 @@
+{
+	"5e4014": {
+		"vendor": "XTX Technology Limited",
+		"name": "XT25F08B",
+		"size": 1048576,
+		"page_size": 256,
+		"status_lock": [
+			"WRSR_WREN"
+		],
+		"unlock": "BP3_SRWD",
+		"features": [
+			"FEAT_SECTERASE",
+			"FEAT_CHIPERASE"
+		]
+	},
+	"1c3113": {
+		"vendor": "XTX Technology Limited",
+		"name": "XT25F04B",
+		"size": 524288,
+		"page_size": 256,
+		"status_lock": [
+			"WRSR_WREN"
+		],
+		"unlock": "BP3_SRWD",
+		"features": [
+			"FEAT_SECTERASE",
+			"FEAT_CHIPERASE"
+		]
+	},
+	"514013": {
+		"vendor": "GigaDevice",
+		"name": "GD25D40",
+		"size": 524288,
+		"page_size": 256,
+		"status_lock": [
+			"WRSR_WREN"
+		],
+		"unlock": "BP2_SRWD",
+		"features": [
+			"FEAT_SECTERASE",
+			"FEAT_CHIPERASE"
+		]
+	},
+	"514014": {
+		"vendor": "GigaDevice",
+		"name": "GD25D80",
+		"size": 1048576,
+		"page_size": 256,
+		"status_lock": [
+			"WRSR_WREN"
+		],
+		"unlock": "BP2_SRWD",
+		"features": [
+			"FEAT_SECTERASE",
+			"FEAT_CHIPERASE"
+		]
+	},
+	"c84014": {
+		"vendor": "GigaDevice",
+		"name": "GD25D80",
+		"size": 1048576,
+		"page_size": 256,
+		"status_lock": [
+			"WRSR_WREN"
+		],
+		"unlock": "BP4_SRWD",
+		"features": [
+			"FEAT_SECTERASE",
+			"FEAT_CHIPERASE"
+		]
+	},
+	"856014": {
+		"vendor": "PUYA",
+		"name": "P25Q80",
+		"size": 1048576,
+		"page_size": 256,
+		"status_lock": [
+			"WRSR_WREN"
+		],
+		"unlock": "BP4_SRWD",
+		"features": [
+			"FEAT_SECTERASE",
+			"FEAT_CHIPERASE"
+		]
+	},
+	"854215": {
+		"vendor": "PUYA",
+		"name": "P25Q80",
+		"size": 2097152,
+		"page_size": 256,
+		"status_lock": [
+			"WRSR_WREN"
+		],
+		"unlock": "BP4_SRWD",
+		"features": [
+			"FEAT_SECTERASE",
+			"FEAT_CHIPERASE"
+		]
+	},
+	"852015": {
+		"vendor": "PUYA",
+		"name": "P25Q16HB-K",
+		"size": 2097152,
+		"page_size": 256,
+		"status_lock": [
+			"WRSR_WREN"
+		],
+		"unlock": "BP4_SRWD",
+		"features": [
+			"FEAT_SECTERASE",
+			"FEAT_CHIPERASE"
+		]
+	},
+	"856013": {
+		"vendor": "PUYA",
+		"name": "P25Q40",
+		"size": 524288,
+		"page_size": 256,
+		"status_lock": [
+			"WRSR_WREN"
+		],
+		"unlock": "BP4_SRWD",
+		"features": [
+			"FEAT_SECTERASE",
+			"FEAT_CHIPERASE"
+		]
+	},
+	"856016": {
+		"vendor": "PUYA",
+		"name": "P25Q32H",
+		"size": 4194304,
+		"page_size": 256,
+		"status_lock": [
+			"WRSR_WREN"
+		],
+		"unlock": "BP4_SRWD",
+		"features": [
+			"FEAT_SECTERASE",
+			"FEAT_CHIPERASE"
+		]
+	},
+	"856017": {
+		"vendor": "PUYA",
+		"name": "P25Q64H",
+		"size": 8388608,
+		"page_size": 256,
+		"status_lock": [
+			"WRSR_WREN"
+		],
+		"unlock": "BP4_SRWD",
+		"features": [
+			"FEAT_SECTERASE",
+			"FEAT_CHIPERASE"
+		]
+	},
+	"0b4015": {
+		"vendor": "XTX Technology Limited",
+		"name": "XT25F16B",
+		"size": 2097152,
+		"page_size": 256,
+		"status_lock": [
+			"WRSR_WREN"
+		],
+		"unlock": "BP4_SRWD",
+		"features": [
+			"FEAT_SECTERASE",
+			"FEAT_CHIPERASE"
+		]
+	},
+	"c84015": {
+		"vendor": "GigaDevice",
+		"name": "GD25Q16B",
+		"size": 2097152,
+		"page_size": 256,
+		"status_lock": [
+			"WRSR_WREN"
+		],
+		"unlock": "BP4_SRWD",
+		"features": [
+			"FEAT_SECTERASE",
+			"FEAT_CHIPERASE"
+		]
+	},
+	"c22314": {
+		"vendor": "Macronix",
+		"name": "MX25V8035F",
+		"size": 1048576,
+		"page_size": 256,
+		"status_lock": [
+			"WRSR_WREN"
+		],
+		"unlock": "BP3_SRWD",
+		"features": [
+			"FEAT_SECTERASE",
+			"FEAT_CHIPERASE"
+		]
+	},
+	"c22315": {
+		"vendor": "Macronix",
+		"name": "MX25V1635F",
+		"size": 2097152,
+		"page_size": 256,
+		"status_lock": [
+			"WRSR_WREN"
+		],
+		"unlock": "BP3_SRWD",
+		"features": [
+			"FEAT_SECTERASE",
+			"FEAT_CHIPERASE"
+		]
+	},
+	"0b4016": {
+		"vendor": "XTX Technology Limited",
+		"name": "XT25F32B",
+		"size": 4194304,
+		"page_size": 256,
+		"status_lock": [
+			"WRSR_WREN"
+		],
+		"unlock": "BP4_SRWD",
+		"features": [
+			"FEAT_SECTERASE",
+			"FEAT_CHIPERASE"
+		]
+	},
+	"c84013": {
+		"vendor": "GigaDevice",
+		"name": "GD25Q41B",
+		"size": 524288,
+		"page_size": 256,
+		"status_lock": [
+			"WRSR_WREN"
+		],
+		"unlock": "BP2_SRWD",
+		"features": [
+			"FEAT_SECTERASE",
+			"FEAT_CHIPERASE"
+		]
+	},
+	"e04013": {
+		"vendor": "Boya/BoHong Microelectronics",
+		"name": "PN25Q40A",
+		"size": 524288,
+		"page_size": 256,
+		"status_lock": [
+			"WRSR_WREN"
+		],
+		"unlock": "BP2_SRWD",
+		"features": [
+			"FEAT_SECTERASE",
+			"FEAT_CHIPERASE"
+		]
+	},
+	"e04014": {
+		"vendor": "Boya/BoHong Microelectronics",
+		"name": "PN25Q80A",
+		"size": 1048576,
+		"page_size": 256,
+		"status_lock": [
+			"WRSR_WREN"
+		],
+		"unlock": "BP2_SRWD",
+		"features": [
+			"FEAT_SECTERASE",
+			"FEAT_CHIPERASE"
+		]
+	},
+	"0b4017": {
+		"vendor": "XTX Technology Limited",
+		"name": "XT25F64B",
+		"size": 8388608,
+		"page_size": 256,
+		"status_lock": [
+			"WRSR_WREN"
+		],
+		"unlock": "BP4_SRWD",
+		"features": [
+			"FEAT_SECTERASE",
+			"FEAT_CHIPERASE"
+		]
+	},
+	"0b6017": {
+		"vendor": "XTX Technology Limited",
+		"name": "XT25Q64B",
+		"size": 8388608,
+		"page_size": 256,
+		"status_lock": [
+			"WRSR_WREN"
+		],
+		"unlock": "BP4_SRWD",
+		"features": [
+			"FEAT_SECTERASE",
+			"FEAT_CHIPERASE"
+		]
+	},
+	"ef4018": {
+		"vendor": "Winbond",
+		"name": "W25Q128JV",
+		"size": 16777216,
+		"page_size": 256,
+		"status_lock": [
+			"WRSR_WREN"
+		],
+		"unlock": "BP4_SRWD",
+		"features": [
+			"FEAT_SECTERASE",
+			"FEAT_CHIPERASE"
+		]
+	},
+	"1c7015": {
+		"vendor": "ESMT",
+		"name": "EN25QH16B",
+		"size": 2097152,
+		"page_size": 256,
+		"status_lock": [
+			"WRSR_WREN"
+		],
+		"unlock": "BP3_SRWD",
+		"features": [
+			"FEAT_SECTERASE",
+			"FEAT_CHIPERASE"
+		]
+	},
+	"1c4116": {
+		"vendor": "ESMT",
+		"name": "EN25QH32A",
+		"size": 4194304,
+		"page_size": 256,
+		"status_lock": [
+			"WRSR_WREN"
+		],
+		"unlock": "BP3_SRWD",
+		"features": [
+			"FEAT_SECTERASE",
+			"FEAT_CHIPERASE"
+		]
+	},
+	"1c6116": {
+		"vendor": "ESMT",
+		"name": "EN25QH32A",
+		"size": 4194304,
+		"page_size": 256,
+		"status_lock": [
+			"WRSR_WREN"
+		],
+		"unlock": "BP4_SRWD",
+		"features": [
+			"FEAT_SECTERASE",
+			"FEAT_CHIPERASE"
+		]
+	},
+	"eb6015": {
+		"vendor": "TSINGTENG Microsystem",
+		"name": "TH25Q-16HB",
+		"size": 2097152,
+		"page_size": 256,
+		"status_lock": [
+			"WRSR_WREN"
+		],
+		"unlock": "BP4_SRWD",
+		"features": [
+			"FEAT_SECTERASE",
+			"FEAT_CHIPERASE"
+		]
+	},
+	"cd6014": {
+		"vendor": "TSINGTENG Microsystem",
+		"name": "TH25Q-80HB",
+		"size": 1048576,
+		"page_size": 256,
+		"status_lock": [
+			"WRSR_WREN"
+		],
+		"unlock": "BP4_SRWD",
+		"features": [
+			"FEAT_SECTERASE",
+			"FEAT_CHIPERASE"
+		]
+	},
+	"c84016": {
+		"vendor": "Unknown",
+		"name": "NA_NA",
+		"size": 4194304,
+		"page_size": 256,
+		"status_lock": [
+			"WRSR_WREN"
+		],
+		"unlock": "BP4_SRWD",
+		"features": [
+			"FEAT_SECTERASE",
+			"FEAT_CHIPERASE"
+		]
+	},
+	"c86515": {
+		"vendor": "GigaDevice",
+		"name": "GD25WQ16E",
+		"size": 2097152,
+		"page_size": 256,
+		"status_lock": [
+			"WRSR_WREN"
+		],
+		"unlock": "BP4_SRWD",
+		"features": [
+			"FEAT_SECTERASE",
+			"FEAT_CHIPERASE"
+		]
+	},
+	"c86516": {
+		"vendor": "GigaDevice",
+		"name": "GD25WQ32E",
+		"size": 4194304,
+		"page_size": 256,
+		"status_lock": [
+			"WRSR_WREN"
+		],
+		"unlock": "BP4_SRWD",
+		"features": [
+			"FEAT_SECTERASE",
+			"FEAT_CHIPERASE"
+		]
+	},
+	"c86517": {
+		"vendor": "GigaDevice",
+		"name": "GD25WQ64E",
+		"size": 8388608,
+		"page_size": 256,
+		"status_lock": [
+			"WRSR_WREN"
+		],
+		"unlock": "BP4_SRWD",
+		"features": [
+			"FEAT_SECTERASE",
+			"FEAT_CHIPERASE"
+		]
+	}
+}
