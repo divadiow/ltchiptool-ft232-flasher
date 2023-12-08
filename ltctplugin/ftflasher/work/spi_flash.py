@@ -191,11 +191,13 @@ class SpiFlashThread(BaseThread):
         self.callback.on_total(self.length * 2)  # count verification length
         self.callback.on_message(None)
 
+        start = self.offset
+        end = self.offset + self.length
         # async mode is super slow
         chunk_size = BLOCK_SIZE if self.mode != FtdiMode.ASYNC else 256
 
         try:
-            for offset in range(0, self.length, chunk_size):
+            for offset in range(start, end, chunk_size):
                 if (offset % BLOCK_SIZE) == 0:
                     self.callback.on_message(f"Erasing at 0x{offset:X}")
                     self.flash.erase(offset, max(chunk_size, BLOCK_SIZE))
@@ -239,8 +241,11 @@ class SpiFlashThread(BaseThread):
         self.callback.on_total(self.length)
         self.callback.on_message(None)
 
+        start = self.offset
+        end = self.offset + self.length
+
         try:
-            for offset in range(0, self.length, BLOCK_SIZE):
+            for offset in range(start, end, BLOCK_SIZE):
                 self.callback.on_message(f"Erasing at 0x{offset:X}")
                 self.flash.erase(offset, BLOCK_SIZE)
                 self.callback.on_update(BLOCK_SIZE)
