@@ -8,7 +8,7 @@ from typing import Callable
 from ltchiptool.gui.work.base import BaseThread
 from ltchiptool.util.streams import ClickProgressCallback
 from pyftdi.gpio import GpioAsyncController, GpioSyncController
-from pyftdi.spi import SpiController, SpiGpioPort
+from pyftdi.spi import SpiController, SpiGpioPort, SpiPort
 from pyftdibb.spi import BitBangSpiController
 from spiflash.serialflash import SerialFlashManager, SerialFlashUnknownJedec
 
@@ -66,6 +66,14 @@ class Bk72xxBootThread(BaseThread):
                 Path(__file__).parent.with_name("res").joinpath("spi_flash_chips.json")
             )
 
+            self.callback.on_message("Checking flash ID...")
+            flash_id = SerialFlashManager.read_jedec_id(port)
+            if flash_id == b"\xFF\xFF\xFF":
+                flash_id = b"\x00\x00\x00"
+            if any(flash_id):
+                self._finalize(port, flash_id)
+                return
+
             while self.should_run():
                 self.callback.on_message("Rebooting chip...")
                 gpio.write(cen_low)
@@ -75,32 +83,36 @@ class Bk72xxBootThread(BaseThread):
                 self.callback.on_message("Entering download mode...")
                 tx = b"\xD2" * 64
                 rx = port.exchange(out=tx, readlen=len(tx), duplex=True)
-                debug(rx.hex(" "))
-                # if rx.count(0xD2) == 0:
-                #     continue
-
-                self.callback.on_message("Checking flash ID...")
-                flash_id = SerialFlashManager.read_jedec_id(port)
-                if flash_id == b"\xFF\xFF\xFF":
-                    flash_id = b"\x00\x00\x00"
-                if not any(flash_id):
+                debug(f"SPI RX: {rx.hex(' ')}")
+                if rx.count(0xD2) == 0:
                     continue
 
-                info(f"Chip connected, flash ID: {flash_id.hex(' ')}")
-                try:
-                    # noinspection PyProtectedMember
-                    flash = SerialFlashManager._get_flash(port, flash_id)
-                except SerialFlashUnknownJedec:
-                    flash = None
+                for i in range(5):
+                    self.callback.on_message(f"Checking flash ID ({i + 1})...")
+                    sleep(0.2)
+                    flash_id = SerialFlashManager.read_jedec_id(port)
+                    if flash_id == b"\xFF\xFF\xFF":
+                        flash_id = b"\x00\x00\x00"
+                    debug(f"Flash ID {i + 1}: {flash_id.hex(' ')}")
+                    if any(flash_id):
+                        self._finalize(port, flash_id)
+                        return
 
-                chip_info = [
-                    ("Flash chip JEDEC ID", flash_id.hex(" ").upper()),
-                    ("Flash chip name", flash and str(flash) or "Unknown"),
-                ]
-                self.on_chip_info_full(chip_info)
-                break
+    def _finalize(self, port: SpiPort, flash_id: bytes) -> None:
+        info(f"Chip connected, flash ID: {flash_id.hex(' ')}")
+        try:
+            # noinspection PyProtectedMember
+            flash = SerialFlashManager._get_flash(port, flash_id)
+        except SerialFlashUnknownJedec:
+            flash = None
 
-            self.spi.close()
+        chip_info = [
+            ("Flash chip JEDEC ID", flash_id.hex(" ").upper()),
+            ("Flash chip name", flash and str(flash) or "Unknown"),
+        ]
+        self.on_chip_info_full(chip_info)
+
+        self.spi.close()
 
     def stop(self):
         super().stop()
