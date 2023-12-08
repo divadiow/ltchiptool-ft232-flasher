@@ -399,6 +399,408 @@
 				"FEAT_CHIPERASE"
 			]
 		},
+		"1c2010": {
+			"vendor": "Eon",
+			"name": "EN25B05",
+			"size": 65536,
+			"page_size": 256,
+			"status_lock": [
+				"WRSR_WREN"
+			],
+			"unlock": "STANDARD",
+			"features": [
+				"FEAT_SECTERASE",
+				"FEAT_CHIPERASE"
+			]
+		},
+		"1c2011": {
+			"vendor": "Eon",
+			"name": "EN25B10",
+			"size": 131072,
+			"page_size": 256,
+			"status_lock": [
+				"WRSR_WREN"
+			],
+			"unlock": "STANDARD",
+			"features": [
+				"FEAT_SECTERASE",
+				"FEAT_CHIPERASE"
+			]
+		},
+		"1c2015": {
+			"vendor": "Eon",
+			"name": "EN25B16",
+			"size": 2097152,
+			"page_size": 256,
+			"status_lock": [
+				"WRSR_WREN"
+			],
+			"unlock": "STANDARD",
+			"features": [
+				"FEAT_SECTERASE",
+				"FEAT_CHIPERASE"
+			]
+		},
+		"1c2012": {
+			"vendor": "Eon",
+			"name": "EN25B20",
+			"size": 262144,
+			"page_size": 256,
+			"status_lock": [
+				"WRSR_WREN"
+			],
+			"unlock": "STANDARD",
+			"features": [
+				"FEAT_SECTERASE",
+				"FEAT_CHIPERASE"
+			]
+		},
+		"1c2016": {
+			"vendor": "Eon",
+			"name": "EN25B32",
+			"size": 4194304,
+			"page_size": 256,
+			"status_lock": [
+				"WRSR_WREN"
+			],
+			"unlock": "STANDARD",
+			"features": [
+				"FEAT_SECTERASE",
+				"FEAT_CHIPERASE"
+			]
+		},
+		"1c2013": {
+			"vendor": "Eon",
+			"name": "EN25B40",
+			"size": 524288,
+			"page_size": 256,
+			"status_lock": [
+				"WRSR_WREN"
+			],
+			"unlock": "STANDARD",
+			"features": [
+				"FEAT_SECTERASE",
+				"FEAT_CHIPERASE"
+			]
+		},
+		"1c2017": {
+			"vendor": "Eon",
+			"name": "EN25B64",
+			"size": 8388608,
+			"page_size": 256,
+			"status_lock": [
+				"WRSR_WREN"
+			],
+			"unlock": "STANDARD",
+			"features": [
+				"FEAT_SECTERASE",
+				"FEAT_CHIPERASE"
+			]
+		},
+		"1c2014": {
+			"vendor": "Eon",
+			"name": "EN25B80",
+			"size": 1048576,
+			"page_size": 256,
+			"status_lock": [
+				"WRSR_WREN"
+			],
+			"unlock": "STANDARD",
+			"features": [
+				"FEAT_SECTERASE",
+				"FEAT_CHIPERASE"
+			]
+		},
+		"1c3110": {
+			"vendor": "Eon",
+			"name": "EN25F05",
+			"size": 65536,
+			"page_size": 256,
+			"status_lock": [
+				"WRSR_WREN"
+			],
+			"unlock": "STANDARD",
+			"features": [
+				"FEAT_SUBSECTERASE",
+				"FEAT_SECTERASE",
+				"FEAT_HSECTERASE",
+				"FEAT_CHIPERASE"
+			]
+		},
+		"1c3111": {
+			"vendor": "Eon",
+			"name": "EN25F10",
+			"size": 131072,
+			"page_size": 256,
+			"status_lock": [
+				"WRSR_WREN"
+			],
+			"unlock": "STANDARD",
+			"features": [
+				"FEAT_SUBSECTERASE",
+				"FEAT_SECTERASE",
+				"FEAT_HSECTERASE",
+				"FEAT_CHIPERASE"
+			]
+		},
+		"1c3115": {
+			"vendor": "Eon",
+			"name": "EN25F16",
+			"size": 2097152,
+			"page_size": 256,
+			"status_lock": [
+				"WRSR_WREN"
+			],
+			"unlock": "STANDARD",
+			"features": [
+				"FEAT_SUBSECTERASE",
+				"FEAT_SECTERASE",
+				"FEAT_CHIPERASE"
+			]
+		},
+		"1c3112": {
+			"vendor": "Eon",
+			"name": "EN25F20",
+			"size": 262144,
+			"page_size": 256,
+			"status_lock": [
+				"WRSR_WREN"
+			],
+			"unlock": "STANDARD",
+			"features": [
+				"FEAT_SUBSECTERASE",
+				"FEAT_SECTERASE",
+				"FEAT_HSECTERASE",
+				"FEAT_CHIPERASE"
+			]
+		},
+		"1c3116": {
+			"vendor": "Eon",
+			"name": "EN25F32",
+			"size": 4194304,
+			"page_size": 256,
+			"status_lock": [
+				"WRSR_WREN"
+			],
+			"unlock": "STANDARD",
+			"features": [
+				"FEAT_SUBSECTERASE",
+				"FEAT_SECTERASE",
+				"FEAT_CHIPERASE"
+			]
+		},
+		"1c3113": {
+			"vendor": "Eon",
+			"name": "EN25F40",
+			"size": 524288,
+			"page_size": 256,
+			"status_lock": [
+				"WRSR_WREN"
+			],
+			"unlock": "STANDARD",
+			"features": [
+				"FEAT_SUBSECTERASE",
+				"FEAT_SECTERASE",
+				"FEAT_CHIPERASE"
+			]
+		},
+		"1c3117": {
+			"vendor": "Eon",
+			"name": "EN25F64",
+			"size": 8388608,
+			"page_size": 256,
+			"status_lock": [
+				"WRSR_WREN"
+			],
+			"unlock": "STANDARD",
+			"features": [
+				"FEAT_SUBSECTERASE",
+				"FEAT_SECTERASE",
+				"FEAT_CHIPERASE"
+			]
+		},
+		"1c3114": {
+			"vendor": "Eon",
+			"name": "EN25F80",
+			"size": 1048576,
+			"page_size": 256,
+			"status_lock": [
+				"WRSR_WREN"
+			],
+			"unlock": "STANDARD",
+			"features": [
+				"FEAT_SUBSECTERASE",
+				"FEAT_SECTERASE",
+				"FEAT_CHIPERASE"
+			]
+		},
+		"1c7018": {
+			"vendor": "Eon",
+			"name": "EN25QH128",
+			"size": 16777216,
+			"page_size": 256,
+			"status_lock": [
+				"WRSR_WREN"
+			],
+			"unlock": "BP3_SRWD",
+			"features": [
+				"FEAT_SUBSECTERASE",
+				"FEAT_SECTERASE",
+				"FEAT_CHIPERASE"
+			]
+		},
+		"1c7015": {
+			"vendor": "Eon",
+			"name": "EN25QH16",
+			"size": 2097152,
+			"page_size": 256,
+			"status_lock": [
+				"WRSR_WREN"
+			],
+			"unlock": "BP3_SRWD",
+			"features": [
+				"FEAT_SUBSECTERASE",
+				"FEAT_SECTERASE",
+				"FEAT_CHIPERASE"
+			]
+		},
+		"1c7016": {
+			"vendor": "Eon",
+			"name": "EN25QH32",
+			"size": 4194304,
+			"page_size": 256,
+			"status_lock": [
+				"WRSR_WREN"
+			],
+			"unlock": "BP3_SRWD",
+			"features": [
+				"FEAT_SUBSECTERASE",
+				"FEAT_SECTERASE",
+				"FEAT_CHIPERASE"
+			]
+		},
+		"1c7017": {
+			"vendor": "Eon",
+			"name": "EN25QH64",
+			"size": 8388608,
+			"page_size": 256,
+			"status_lock": [
+				"WRSR_WREN"
+			],
+			"unlock": "BP3_SRWD",
+			"features": [
+				"FEAT_SUBSECTERASE",
+				"FEAT_SECTERASE",
+				"FEAT_CHIPERASE"
+			]
+		},
+		"1c3811": {
+			"vendor": "Eon",
+			"name": "EN25S10",
+			"size": 131072,
+			"page_size": 256,
+			"status_lock": [
+				"WRSR_WREN"
+			],
+			"unlock": "STANDARD",
+			"features": [
+				"FEAT_SUBSECTERASE",
+				"FEAT_HSECTERASE",
+				"FEAT_CHIPERASE"
+			]
+		},
+		"1c3815": {
+			"vendor": "Eon",
+			"name": "EN25S16",
+			"size": 2097152,
+			"page_size": 256,
+			"status_lock": [
+				"WRSR_WREN"
+			],
+			"unlock": "BP3_SRWD",
+			"features": [
+				"FEAT_SUBSECTERASE",
+				"FEAT_SECTERASE",
+				"FEAT_HSECTERASE",
+				"FEAT_CHIPERASE"
+			]
+		},
+		"1c3812": {
+			"vendor": "Eon",
+			"name": "EN25S20",
+			"size": 262144,
+			"page_size": 256,
+			"status_lock": [
+				"WRSR_WREN"
+			],
+			"unlock": "STANDARD",
+			"features": [
+				"FEAT_SUBSECTERASE",
+				"FEAT_SECTERASE",
+				"FEAT_CHIPERASE"
+			]
+		},
+		"1c3816": {
+			"vendor": "Eon",
+			"name": "EN25S32",
+			"size": 4194304,
+			"page_size": 256,
+			"status_lock": [
+				"WRSR_WREN"
+			],
+			"unlock": "BP3_SRWD",
+			"features": [
+				"FEAT_SUBSECTERASE",
+				"FEAT_HSECTERASE",
+				"FEAT_SECTERASE",
+				"FEAT_CHIPERASE"
+			]
+		},
+		"1c3813": {
+			"vendor": "Eon",
+			"name": "EN25S40",
+			"size": 524288,
+			"page_size": 256,
+			"status_lock": [
+				"WRSR_WREN"
+			],
+			"unlock": "STANDARD",
+			"features": [
+				"FEAT_SUBSECTERASE",
+				"FEAT_SECTERASE",
+				"FEAT_CHIPERASE"
+			]
+		},
+		"1c3817": {
+			"vendor": "Eon",
+			"name": "EN25S64",
+			"size": 8388608,
+			"page_size": 256,
+			"status_lock": [
+				"WRSR_WREN"
+			],
+			"unlock": "BP3_SRWD",
+			"features": [
+				"FEAT_SUBSECTERASE",
+				"FEAT_SECTERASE",
+				"FEAT_CHIPERASE"
+			]
+		},
+		"1c3814": {
+			"vendor": "Eon",
+			"name": "EN25S80",
+			"size": 1048576,
+			"page_size": 256,
+			"status_lock": [
+				"WRSR_WREN"
+			],
+			"unlock": "STANDARD",
+			"features": [
+				"FEAT_SUBSECTERASE",
+				"FEAT_SECTERASE",
+				"FEAT_CHIPERASE"
+			]
+		},
 		"a13110": {
 			"vendor": "Fudan",
 			"name": "FM25F005",
@@ -1174,6 +1576,539 @@
 			"features": [
 				"FEAT_SECTERASE",
 				"FEAT_CHIPERASE"
+			]
+		},
+		"c22415": {
+			"vendor": "Macronix",
+			"name": "MX25L1635D",
+			"size": 2097152,
+			"page_size": 256,
+			"status_lock": [
+				"WRSR_WREN"
+			],
+			"unlock": "BP3_SRWD",
+			"features": [
+				"FEAT_SUBSECTERASE",
+				"FEAT_SECTERASE",
+				"FEAT_CHIPERASE"
+			]
+		},
+		"c22515": {
+			"vendor": "Macronix",
+			"name": "MX25L1635E",
+			"size": 2097152,
+			"page_size": 256,
+			"status_lock": [
+				"WRSR_WREN"
+			],
+			"unlock": "BP3_SRWD",
+			"features": [
+				"FEAT_SUBSECTERASE",
+				"FEAT_SECTERASE",
+				"FEAT_CHIPERASE"
+			]
+		},
+		"c25e16": {
+			"vendor": "Macronix",
+			"name": "MX25L3235D",
+			"size": 4194304,
+			"page_size": 256,
+			"status_lock": [
+				"WRSR_WREN"
+			],
+			"unlock": "BP3_SRWD",
+			"features": [
+				"FEAT_SUBSECTERASE",
+				"FEAT_SECTERASE",
+				"FEAT_CHIPERASE"
+			]
+		},
+		"c22210": {
+			"vendor": "Macronix",
+			"name": "MX25L5121E",
+			"size": 65536,
+			"page_size": 32,
+			"status_lock": [
+				"WRSR_WREN"
+			],
+			"unlock": "STANDARD",
+			"features": [
+				"FEAT_SUBSECTERASE",
+				"FEAT_HSECTERASE",
+				"FEAT_SECTERASE",
+				"FEAT_CHIPERASE"
+			]
+		},
+		"c29517": {
+			"vendor": "Macronix",
+			"name": "MX25L6495F",
+			"size": 8388608,
+			"page_size": 256,
+			"status_lock": [
+				"WRSR_WREN"
+			],
+			"unlock": "STANDARD",
+			"features": [
+				"FEAT_SUBSECTERASE",
+				"FEAT_HSECTERASE",
+				"FEAT_SECTERASE",
+				"FEAT_CHIPERASE"
+			]
+		},
+		"c22816": {
+			"vendor": "Macronix",
+			"name": "MX25R3235F",
+			"size": 4194304,
+			"page_size": 256,
+			"status_lock": [
+				"WRSR_WREN"
+			],
+			"unlock": "BP3_SRWD",
+			"features": [
+				"FEAT_SUBSECTERASE",
+				"FEAT_HSECTERASE",
+				"FEAT_SECTERASE",
+				"FEAT_CHIPERASE"
+			]
+		},
+		"c22817": {
+			"vendor": "Macronix",
+			"name": "MX25R6435F",
+			"size": 8388608,
+			"page_size": 256,
+			"status_lock": [
+				"WRSR_WREN"
+			],
+			"unlock": "BP3_SRWD",
+			"features": [
+				"FEAT_SUBSECTERASE",
+				"FEAT_HSECTERASE",
+				"FEAT_SECTERASE",
+				"FEAT_CHIPERASE"
+			]
+		},
+		"c22313": {
+			"vendor": "Macronix",
+			"name": "MX25V4035F",
+			"size": 524288,
+			"page_size": 256,
+			"status_lock": [
+				"WRSR_WREN"
+			],
+			"unlock": "BP3_SRWD",
+			"features": [
+				"FEAT_SUBSECTERASE",
+				"FEAT_HSECTERASE",
+				"FEAT_SECTERASE",
+				"FEAT_CHIPERASE"
+			]
+		},
+		"c22314": {
+			"vendor": "Macronix",
+			"name": "MX25V8035F",
+			"size": 1048576,
+			"page_size": 256,
+			"status_lock": [
+				"WRSR_WREN"
+			],
+			"unlock": "BP3_SRWD",
+			"features": [
+				"FEAT_SUBSECTERASE",
+				"FEAT_HSECTERASE",
+				"FEAT_SECTERASE",
+				"FEAT_CHIPERASE"
+			]
+		},
+		"c22315": {
+			"vendor": "Macronix",
+			"name": "MX25V1635F",
+			"size": 2097152,
+			"page_size": 256,
+			"status_lock": [
+				"WRSR_WREN"
+			],
+			"unlock": "BP3_SRWD",
+			"features": [
+				"FEAT_SUBSECTERASE",
+				"FEAT_HSECTERASE",
+				"FEAT_SECTERASE"
+			]
+		},
+		"c22538": {
+			"vendor": "Macronix",
+			"name": "MX25U12835F",
+			"size": 16777216,
+			"page_size": 256,
+			"status_lock": [
+				"WRSR_WREN"
+			],
+			"unlock": "BP3_SRWD",
+			"features": [
+				"FEAT_SUBSECTERASE",
+				"FEAT_HSECTERASE",
+				"FEAT_SECTERASE",
+				"FEAT_CHIPERASE"
+			]
+		},
+		"c22535": {
+			"vendor": "Macronix",
+			"name": "MX25U1635E",
+			"size": 2097152,
+			"page_size": 256,
+			"status_lock": [
+				"WRSR_WREN"
+			],
+			"unlock": "BP3_SRWD",
+			"features": [
+				"FEAT_SUBSECTERASE",
+				"FEAT_HSECTERASE",
+				"FEAT_SECTERASE",
+				"FEAT_CHIPERASE"
+			]
+		},
+		"c22539": {
+			"vendor": "Macronix",
+			"name": "MX25U25635F",
+			"size": 33554432,
+			"page_size": 256,
+			"status_lock": [
+				"WRSR_WREN"
+			],
+			"unlock": "BP3_SRWD",
+			"features": [
+				"FEAT_SUBSECTERASE",
+				"FEAT_HSECTERASE",
+				"FEAT_SECTERASE",
+				"FEAT_CHIPERASE"
+			]
+		},
+		"c22536": {
+			"vendor": "Macronix",
+			"name": "MX25U3235E/F",
+			"size": 4194304,
+			"page_size": 256,
+			"status_lock": [
+				"WRSR_WREN"
+			],
+			"unlock": "BP3_SRWD",
+			"features": [
+				"FEAT_SUBSECTERASE",
+				"FEAT_HSECTERASE",
+				"FEAT_SECTERASE",
+				"FEAT_CHIPERASE"
+			]
+		},
+		"c2253a": {
+			"vendor": "Macronix",
+			"name": "MX25U51245G",
+			"size": 67108864,
+			"page_size": 256,
+			"status_lock": [
+				"WRSR_WREN"
+			],
+			"unlock": "BP3_SRWD",
+			"features": [
+				"FEAT_SUBSECTERASE",
+				"FEAT_HSECTERASE",
+				"FEAT_SECTERASE",
+				"FEAT_CHIPERASE"
+			]
+		},
+		"c22537": {
+			"vendor": "Macronix",
+			"name": "MX25U6435E/F",
+			"size": 8388608,
+			"page_size": 256,
+			"status_lock": [
+				"WRSR_WREN"
+			],
+			"unlock": "BP3_SRWD",
+			"features": [
+				"FEAT_SUBSECTERASE",
+				"FEAT_HSECTERASE",
+				"FEAT_SECTERASE",
+				"FEAT_CHIPERASE"
+			]
+		},
+		"c22534": {
+			"vendor": "Macronix",
+			"name": "MX25U8032E",
+			"size": 1048576,
+			"page_size": 256,
+			"status_lock": [
+				"WRSR_WREN"
+			],
+			"unlock": "BP3_SRWD",
+			"features": [
+				"FEAT_SUBSECTERASE",
+				"FEAT_HSECTERASE",
+				"FEAT_SECTERASE",
+				"FEAT_CHIPERASE"
+			]
+		},
+		"c27519": {
+			"vendor": "Macronix",
+			"name": "MX77L25650F",
+			"size": 33554432,
+			"page_size": 256,
+			"status_lock": [
+				"WRSR_WREN"
+			],
+			"unlock": "BP3_SRWD",
+			"features": [
+				"FEAT_SUBSECTERASE",
+				"FEAT_HSECTERASE",
+				"FEAT_SECTERASE",
+				"FEAT_CHIPERASE"
+			]
+		},
+		"208011": {
+			"vendor": "Micron/Numonyx/ST",
+			"name": "M25PE10",
+			"size": 131072,
+			"page_size": 256,
+			"status_lock": [
+				"WRSR_WREN"
+			],
+			"unlock": "STANDARD",
+			"features": [
+				"FEAT_SUBSECTERASE",
+				"FEAT_SECTERASE",
+				"FEAT_CHIPERASE"
+			]
+		},
+		"208015": {
+			"vendor": "Micron/Numonyx/ST",
+			"name": "M25PE16",
+			"size": 2097152,
+			"page_size": 256,
+			"status_lock": [
+				"WRSR_WREN"
+			],
+			"unlock": "STANDARD",
+			"features": [
+				"FEAT_SUBSECTERASE",
+				"FEAT_SECTERASE",
+				"FEAT_CHIPERASE"
+			]
+		},
+		"208012": {
+			"vendor": "Micron/Numonyx/ST",
+			"name": "M25PE20",
+			"size": 262144,
+			"page_size": 256,
+			"status_lock": [
+				"WRSR_WREN"
+			],
+			"unlock": "STANDARD",
+			"features": [
+				"FEAT_SUBSECTERASE",
+				"FEAT_SECTERASE",
+				"FEAT_CHIPERASE"
+			]
+		},
+		"208013": {
+			"vendor": "Micron/Numonyx/ST",
+			"name": "M25PE40",
+			"size": 524288,
+			"page_size": 256,
+			"status_lock": [
+				"WRSR_WREN"
+			],
+			"unlock": "STANDARD",
+			"features": [
+				"FEAT_SUBSECTERASE",
+				"FEAT_SECTERASE",
+				"FEAT_CHIPERASE"
+			]
+		},
+		"208014": {
+			"vendor": "Micron/Numonyx/ST",
+			"name": "M25PE80",
+			"size": 1048576,
+			"page_size": 256,
+			"status_lock": [
+				"WRSR_WREN"
+			],
+			"unlock": "STANDARD",
+			"features": [
+				"FEAT_SUBSECTERASE",
+				"FEAT_SECTERASE",
+				"FEAT_CHIPERASE"
+			]
+		},
+		"204011": {
+			"vendor": "Micron/Numonyx/ST",
+			"name": "M45PE10",
+			"size": 131072,
+			"page_size": 256,
+			"status_lock": [],
+			"unlock": null,
+			"features": [
+				"FEAT_SECTERASE"
+			]
+		},
+		"204015": {
+			"vendor": "Micron/Numonyx/ST",
+			"name": "M45PE16",
+			"size": 2097152,
+			"page_size": 256,
+			"status_lock": [],
+			"unlock": null,
+			"features": [
+				"FEAT_SECTERASE"
+			]
+		},
+		"204012": {
+			"vendor": "Micron/Numonyx/ST",
+			"name": "M45PE20",
+			"size": 262144,
+			"page_size": 256,
+			"status_lock": [],
+			"unlock": null,
+			"features": [
+				"FEAT_SECTERASE"
+			]
+		},
+		"204013": {
+			"vendor": "Micron/Numonyx/ST",
+			"name": "M45PE40",
+			"size": 524288,
+			"page_size": 256,
+			"status_lock": [],
+			"unlock": null,
+			"features": [
+				"FEAT_SECTERASE"
+			]
+		},
+		"204014": {
+			"vendor": "Micron/Numonyx/ST",
+			"name": "M45PE80",
+			"size": 1048576,
+			"page_size": 256,
+			"status_lock": [],
+			"unlock": null,
+			"features": [
+				"FEAT_SECTERASE"
+			]
+		},
+		"20bb21": {
+			"vendor": "Micron/Numonyx/ST",
+			"name": "N25Q00A..1G",
+			"size": 134217728,
+			"page_size": 256,
+			"status_lock": [
+				"WRSR_WREN"
+			],
+			"unlock": "N25Q",
+			"features": [
+				"FEAT_SUBSECTERASE",
+				"FEAT_SECTERASE"
+			]
+		},
+		"20bb15": {
+			"vendor": "Micron/Numonyx/ST",
+			"name": "N25Q016",
+			"size": 2097152,
+			"page_size": 256,
+			"status_lock": [
+				"WRSR_WREN"
+			],
+			"unlock": "N25Q",
+			"features": [
+				"FEAT_SUBSECTERASE",
+				"FEAT_HSECTERASE",
+				"FEAT_SECTERASE",
+				"FEAT_CHIPERASE"
+			]
+		},
+		"20bb16": {
+			"vendor": "Micron/Numonyx/ST",
+			"name": "N25Q032..1E",
+			"size": 4194304,
+			"page_size": 256,
+			"status_lock": [
+				"WRSR_WREN"
+			],
+			"unlock": "N25Q",
+			"features": [
+				"FEAT_SUBSECTERASE",
+				"FEAT_SECTERASE",
+				"FEAT_CHIPERASE"
+			]
+		},
+		"20bb17": {
+			"vendor": "Micron/Numonyx/ST",
+			"name": "N25Q064..1E",
+			"size": 8388608,
+			"page_size": 256,
+			"status_lock": [
+				"WRSR_WREN"
+			],
+			"unlock": "N25Q",
+			"features": [
+				"FEAT_SUBSECTERASE",
+				"FEAT_SECTERASE",
+				"FEAT_CHIPERASE"
+			]
+		},
+		"20bb18": {
+			"vendor": "Micron/Numonyx/ST",
+			"name": "N25Q128..1E",
+			"size": 16777216,
+			"page_size": 256,
+			"status_lock": [
+				"WRSR_WREN"
+			],
+			"unlock": "N25Q",
+			"features": [
+				"FEAT_SUBSECTERASE",
+				"FEAT_SECTERASE",
+				"FEAT_CHIPERASE"
+			]
+		},
+		"20bb19": {
+			"vendor": "Micron/Numonyx/ST",
+			"name": "N25Q256..1E",
+			"size": 33554432,
+			"page_size": 256,
+			"status_lock": [
+				"WRSR_WREN"
+			],
+			"unlock": "N25Q",
+			"features": [
+				"FEAT_SUBSECTERASE",
+				"FEAT_SECTERASE",
+				"FEAT_CHIPERASE"
+			]
+		},
+		"20bb20": {
+			"vendor": "Micron/Numonyx/ST",
+			"name": "N25Q512..1G",
+			"size": 67108864,
+			"page_size": 256,
+			"status_lock": [
+				"WRSR_WREN"
+			],
+			"unlock": "N25Q",
+			"features": [
+				"FEAT_SUBSECTERASE",
+				"FEAT_SECTERASE"
+			]
+		},
+		"20bb22": {
+			"vendor": "Micron",
+			"name": "MT25QU02G",
+			"size": 268435456,
+			"page_size": 256,
+			"status_lock": [
+				"WRSR_WREN"
+			],
+			"unlock": "N25Q",
+			"features": [
+				"FEAT_SUBSECTERASE",
+				"FEAT_HSECTERASE",
+				"FEAT_SECTERASE"
 			]
 		},
 		"d53011": {
@@ -1957,6 +2892,466 @@
 				"FEAT_CHIPERASE"
 			]
 		},
+		"ef2015": {
+			"vendor": "Winbond",
+			"name": "W25P16",
+			"size": 2097152,
+			"page_size": 256,
+			"status_lock": [
+				"WRSR_WREN"
+			],
+			"unlock": "STANDARD",
+			"features": [
+				"FEAT_SECTERASE",
+				"FEAT_CHIPERASE"
+			]
+		},
+		"ef2016": {
+			"vendor": "Winbond",
+			"name": "W25P32",
+			"size": 4194304,
+			"page_size": 256,
+			"status_lock": [
+				"WRSR_WREN"
+			],
+			"unlock": "STANDARD",
+			"features": [
+				"FEAT_SECTERASE",
+				"FEAT_CHIPERASE"
+			]
+		},
+		"ef2014": {
+			"vendor": "Winbond",
+			"name": "W25P80",
+			"size": 1048576,
+			"page_size": 256,
+			"status_lock": [
+				"WRSR_WREN"
+			],
+			"unlock": "STANDARD",
+			"features": [
+				"FEAT_SECTERASE",
+				"FEAT_CHIPERASE"
+			]
+		},
+		"ef7018": {
+			"vendor": "Winbond",
+			"name": "W25Q128.V..M",
+			"size": 16777216,
+			"page_size": 256,
+			"status_lock": [
+				"WRSR_WREN",
+				"WRSR2"
+			],
+			"unlock": "STANDARD",
+			"features": [
+				"FEAT_SUBSECTERASE",
+				"FEAT_HSECTERASE",
+				"FEAT_SECTERASE",
+				"FEAT_CHIPERASE"
+			]
+		},
+		"ef6018": {
+			"vendor": "Winbond",
+			"name": "W25Q128.W",
+			"size": 16777216,
+			"page_size": 256,
+			"status_lock": [
+				"WRSR_WREN",
+				"WRSR2"
+			],
+			"unlock": "STANDARD",
+			"features": [
+				"FEAT_SUBSECTERASE",
+				"FEAT_HSECTERASE",
+				"FEAT_SECTERASE",
+				"FEAT_CHIPERASE"
+			]
+		},
+		"ef8018": {
+			"vendor": "Winbond",
+			"name": "W25Q128.JW.DTR",
+			"size": 16777216,
+			"page_size": 256,
+			"status_lock": [
+				"WRSR_WREN",
+				"WRSR2"
+			],
+			"unlock": "STANDARD",
+			"features": [
+				"FEAT_SUBSECTERASE",
+				"FEAT_HSECTERASE",
+				"FEAT_SECTERASE",
+				"FEAT_CHIPERASE"
+			]
+		},
+		"ef6015": {
+			"vendor": "Winbond",
+			"name": "W25Q16.W",
+			"size": 2097152,
+			"page_size": 256,
+			"status_lock": [
+				"WRSR_WREN"
+			],
+			"unlock": "STANDARD",
+			"features": [
+				"FEAT_SUBSECTERASE",
+				"FEAT_HSECTERASE",
+				"FEAT_SECTERASE",
+				"FEAT_CHIPERASE"
+			]
+		},
+		"ef5012": {
+			"vendor": "Winbond",
+			"name": "W25Q20.W",
+			"size": 262144,
+			"page_size": 256,
+			"status_lock": [
+				"WRSR_WREN"
+			],
+			"unlock": "STANDARD",
+			"features": [
+				"FEAT_SUBSECTERASE",
+				"FEAT_HSECTERASE",
+				"FEAT_SECTERASE",
+				"FEAT_CHIPERASE"
+			]
+		},
+		"ef7019": {
+			"vendor": "Winbond",
+			"name": "W25Q256JV_M",
+			"size": 33554432,
+			"page_size": 256,
+			"status_lock": [
+				"WRSR_WREN",
+				"WRSR2"
+			],
+			"unlock": "STANDARD",
+			"features": [
+				"FEAT_SUBSECTERASE",
+				"FEAT_HSECTERASE",
+				"FEAT_SECTERASE",
+				"FEAT_CHIPERASE"
+			]
+		},
+		"ef6019": {
+			"vendor": "Winbond",
+			"name": "W25Q256JW",
+			"size": 33554432,
+			"page_size": 256,
+			"status_lock": [
+				"WRSR_WREN"
+			],
+			"unlock": "STANDARD",
+			"features": [
+				"FEAT_SUBSECTERASE",
+				"FEAT_HSECTERASE",
+				"FEAT_SECTERASE",
+				"FEAT_CHIPERASE"
+			]
+		},
+		"ef8019": {
+			"vendor": "Winbond",
+			"name": "W25Q256JW_DTR",
+			"size": 33554432,
+			"page_size": 256,
+			"status_lock": [
+				"WRSR_WREN",
+				"WRSR2",
+				"WRSR3"
+			],
+			"unlock": "STANDARD",
+			"features": [
+				"FEAT_SUBSECTERASE",
+				"FEAT_HSECTERASE",
+				"FEAT_SECTERASE",
+				"FEAT_CHIPERASE"
+			]
+		},
+		"ef6016": {
+			"vendor": "Winbond",
+			"name": "W25Q32BW/W25Q32CW/W25Q32DW",
+			"size": 4194304,
+			"page_size": 256,
+			"status_lock": [
+				"WRSR_WREN",
+				"WRSR_EXT2"
+			],
+			"unlock": "STANDARD",
+			"features": [
+				"FEAT_SUBSECTERASE",
+				"FEAT_HSECTERASE",
+				"FEAT_SECTERASE",
+				"FEAT_CHIPERASE"
+			]
+		},
+		"ef8016": {
+			"vendor": "Winbond",
+			"name": "W25Q32JW...M",
+			"size": 4194304,
+			"page_size": 256,
+			"status_lock": [
+				"WRSR_WREN",
+				"WRSR2",
+				"WRSR3",
+				"WRSR_EXT2"
+			],
+			"unlock": "BP2_SRWD",
+			"features": [
+				"FEAT_SUBSECTERASE",
+				"FEAT_HSECTERASE",
+				"FEAT_SECTERASE",
+				"FEAT_CHIPERASE"
+			]
+		},
+		"ef5013": {
+			"vendor": "Winbond",
+			"name": "W25Q40BW",
+			"size": 524288,
+			"page_size": 256,
+			"status_lock": [
+				"WRSR_WREN"
+			],
+			"unlock": "STANDARD",
+			"features": [
+				"FEAT_SUBSECTERASE",
+				"FEAT_HSECTERASE",
+				"FEAT_SECTERASE",
+				"FEAT_CHIPERASE"
+			]
+		},
+		"ef6013": {
+			"vendor": "Winbond",
+			"name": "W25Q40EW",
+			"size": 524288,
+			"page_size": 256,
+			"status_lock": [
+				"WRSR_WREN"
+			],
+			"unlock": "STANDARD",
+			"features": [
+				"FEAT_SUBSECTERASE",
+				"FEAT_HSECTERASE",
+				"FEAT_SECTERASE",
+				"FEAT_CHIPERASE"
+			]
+		},
+		"ef8020": {
+			"vendor": "Winbond",
+			"name": "W25Q512NW-IM",
+			"size": 67108864,
+			"page_size": 256,
+			"status_lock": [
+				"WRSR_WREN",
+				"WRSR2",
+				"WRSR3"
+			],
+			"unlock": "STANDARD",
+			"features": [
+				"FEAT_SUBSECTERASE",
+				"FEAT_HSECTERASE",
+				"FEAT_SECTERASE",
+				"FEAT_CHIPERASE"
+			]
+		},
+		"ef7017": {
+			"vendor": "Winbond",
+			"name": "W25Q64JV-.M",
+			"size": 8388608,
+			"page_size": 256,
+			"status_lock": [
+				"WRSR_WREN"
+			],
+			"unlock": "BP2_SRWD",
+			"features": [
+				"FEAT_SUBSECTERASE",
+				"FEAT_HSECTERASE",
+				"FEAT_SECTERASE",
+				"FEAT_CHIPERASE"
+			]
+		},
+		"ef6017": {
+			"vendor": "Winbond",
+			"name": "W25Q64.W",
+			"size": 8388608,
+			"page_size": 256,
+			"status_lock": [
+				"WRSR_WREN",
+				"WRSR2"
+			],
+			"unlock": "STANDARD",
+			"features": [
+				"FEAT_SUBSECTERASE",
+				"FEAT_HSECTERASE",
+				"FEAT_SECTERASE",
+				"FEAT_CHIPERASE"
+			]
+		},
+		"ef8017": {
+			"vendor": "Winbond",
+			"name": "W25Q64JW...M",
+			"size": 8388608,
+			"page_size": 256,
+			"status_lock": [
+				"WRSR_WREN",
+				"WRSR2",
+				"WRSR3"
+			],
+			"unlock": "STANDARD",
+			"features": [
+				"FEAT_SUBSECTERASE",
+				"FEAT_HSECTERASE",
+				"FEAT_SECTERASE",
+				"FEAT_CHIPERASE"
+			]
+		},
+		"ef5014": {
+			"vendor": "Winbond",
+			"name": "W25Q80BW",
+			"size": 1048576,
+			"page_size": 256,
+			"status_lock": [
+				"WRSR_WREN"
+			],
+			"unlock": "STANDARD",
+			"features": [
+				"FEAT_SUBSECTERASE",
+				"FEAT_HSECTERASE",
+				"FEAT_SECTERASE",
+				"FEAT_CHIPERASE"
+			]
+		},
+		"ef6014": {
+			"vendor": "Winbond",
+			"name": "W25Q80EW",
+			"size": 1048576,
+			"page_size": 256,
+			"status_lock": [
+				"WRSR_WREN"
+			],
+			"unlock": "STANDARD",
+			"features": [
+				"FEAT_SUBSECTERASE",
+				"FEAT_HSECTERASE",
+				"FEAT_SECTERASE",
+				"FEAT_CHIPERASE"
+			]
+		},
+		"204017": {
+			"vendor": "XMC",
+			"name": "XM25QH64C",
+			"size": 8388608,
+			"page_size": 256,
+			"status_lock": [
+				"WRSR_WREN"
+			],
+			"unlock": "STANDARD",
+			"features": [
+				"FEAT_SUBSECTERASE",
+				"FEAT_HSECTERASE",
+				"FEAT_SECTERASE",
+				"FEAT_CHIPERASE"
+			]
+		},
+		"204117": {
+			"vendor": "XMC",
+			"name": "XM25QU64C",
+			"size": 8388608,
+			"page_size": 256,
+			"status_lock": [
+				"WRSR_WREN"
+			],
+			"unlock": "STANDARD",
+			"features": [
+				"FEAT_SUBSECTERASE",
+				"FEAT_HSECTERASE",
+				"FEAT_SECTERASE",
+				"FEAT_CHIPERASE"
+			]
+		},
+		"207018": {
+			"vendor": "XMC",
+			"name": "XM25QH128A",
+			"size": 16777216,
+			"page_size": 256,
+			"status_lock": [
+				"WRSR_WREN",
+				"WRSR2"
+			],
+			"unlock": "STANDARD",
+			"features": [
+				"FEAT_SUBSECTERASE",
+				"FEAT_HSECTERASE",
+				"FEAT_SECTERASE",
+				"FEAT_CHIPERASE"
+			]
+		},
+		"204018": {
+			"vendor": "XMC",
+			"name": "XM25QH128C",
+			"size": 16777216,
+			"page_size": 256,
+			"status_lock": [
+				"WRSR_WREN",
+				"WRSR2"
+			],
+			"unlock": "STANDARD",
+			"features": [
+				"FEAT_SUBSECTERASE",
+				"FEAT_HSECTERASE",
+				"FEAT_SECTERASE",
+				"FEAT_CHIPERASE"
+			]
+		},
+		"204118": {
+			"vendor": "XMC",
+			"name": "XM25QU128C",
+			"size": 16777216,
+			"page_size": 256,
+			"status_lock": [
+				"WRSR_WREN"
+			],
+			"unlock": "STANDARD",
+			"features": [
+				"FEAT_SUBSECTERASE",
+				"FEAT_HSECTERASE",
+				"FEAT_SECTERASE",
+				"FEAT_CHIPERASE"
+			]
+		},
+		"204019": {
+			"vendor": "XMC",
+			"name": "XM25QH256C",
+			"size": 33554432,
+			"page_size": 256,
+			"status_lock": [
+				"WRSR_WREN",
+				"WRSR2"
+			],
+			"unlock": "STANDARD",
+			"features": [
+				"FEAT_SUBSECTERASE",
+				"FEAT_HSECTERASE",
+				"FEAT_SECTERASE",
+				"FEAT_CHIPERASE"
+			]
+		},
+		"204119": {
+			"vendor": "XMC",
+			"name": "XM25QU256C",
+			"size": 33554432,
+			"page_size": 256,
+			"status_lock": [
+				"WRSR_WREN"
+			],
+			"unlock": "STANDARD",
+			"features": [
+				"FEAT_SUBSECTERASE",
+				"FEAT_HSECTERASE",
+				"FEAT_SECTERASE",
+				"FEAT_CHIPERASE"
+			]
+		},
 		"0b4012": {
 			"vendor": "XTX Technology Limited",
 			"name": "XT25F02E",
@@ -2386,69 +3781,24 @@
 		}
 	},
 	"extra_devices": {
-		"En25qFlashDevice": {
-			"0x20": "EN25P80",
-			"0x31": "EN25F80",
-			"0x70": "EN25QH64A",
-			"0x38": "EN25S80"
-		},
-		"Mx25lFlashDevice": {
-			"0x5": "MX23L6454",
-			"0x24": "MX25L1635D",
-			"0x25": "MX25U8032E",
-			"0x5e": "MX25L3235D",
-			"0x22": "MX25L5121E",
-			"0x95": "MX25L6495F",
-			"0x28": "MX25R6435F",
-			"0x23": "MX25V1635F",
-			"0x75": "MX77L25650F"
-		},
-		"N25QFlashDevice": {
-			"0x80": "M25PE80",
-			"0x40": "XM25QH256C",
-			"0xbb": "MT25QU512",
-			"0x0": "M95M02",
-			"0x41": "XM25QU256C",
-			"0x70": "XM25QH128A"
-		},
-		"W25xFlashDevice": {
-			"0x20": "W25P80",
-			"0x70": "W25Q64JV-.M",
-			"0x60": "W25Q80EW",
-			"0x80": "W25Q64JW...M",
-			"0x50": "W25Q80BW"
-		}
+		"En25qFlashDevice": {},
+		"Mx25lFlashDevice": {},
+		"N25QFlashDevice": {},
+		"W25xFlashDevice": {}
 	},
 	"extra_sizes": {
 		"En25qFlashDevice": {
-			"0x10": 65536,
-			"0x11": 131072,
-			"0x15": 2097152,
-			"0x12": 262144,
-			"0x16": 4194304,
+			"0x18": 16777216,
 			"0x13": 524288,
-			"0x17": 8388608,
-			"0x14": 1048576,
-			"0x18": 16777216
+			"0x14": 1048576
 		},
 		"Mx25lFlashDevice": {
-			"0x18": 16777216,
-			"0x15": 2097152,
-			"0x16": 4194304,
-			"0x17": 8388608,
 			"0x11": 131072,
 			"0x12": 262144,
 			"0x19": 33554432,
 			"0x13": 524288,
 			"0x10": 65536,
 			"0x14": 1048576,
-			"0x38": 16777216,
-			"0x35": 2097152,
-			"0x39": 33554432,
-			"0x36": 4194304,
-			"0x3a": 67108864,
-			"0x37": 8388608,
-			"0x34": 1048576,
 			"0x1a": 67108864,
 			"0x1b": 134217728
 		},
@@ -2460,15 +3810,7 @@
 			"0x14": 1048576
 		},
 		"N25QFlashDevice": {
-			"0x11": 131072,
-			"0x15": 2097152,
-			"0x12": 262144,
-			"0x13": 524288,
-			"0x14": 1048576,
 			"0x21": 134217728,
-			"0x16": 4194304,
-			"0x17": 8388608,
-			"0x18": 16777216,
 			"0x19": 33554432,
 			"0x20": 67108864,
 			"0x22": 268435456
@@ -2492,15 +3834,8 @@
 			"0x20": 67108864
 		},
 		"W25xFlashDevice": {
-			"0x15": 2097152,
-			"0x16": 4194304,
-			"0x14": 1048576,
-			"0x18": 16777216,
-			"0x12": 262144,
 			"0x19": 33554432,
-			"0x13": 524288,
 			"0x20": 67108864,
-			"0x17": 8388608,
 			"0x10": 65536
 		}
 	}
