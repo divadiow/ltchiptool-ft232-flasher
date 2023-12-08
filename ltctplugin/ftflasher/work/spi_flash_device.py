@@ -59,11 +59,13 @@ class SpiFlashDevice(_Gen25FlashDevice):
     CHIPS: dict[bytes, SpiFlashChip] = None
     SPI_FREQ_MAX = 100  # MHz
     TIMINGS = {
-        "subsector": (0.025, 0.025),  # 25 ms
-        "hsector": (0.025, 0.025),  # 25 ms
-        "sector": (0.025, 0.025),  # 25 ms
-        "lock": (0.0, 0.0),
-    }  # immediate
+        "page": (0.0015, 0.003),  # 1.5/3 ms
+        "subsector": (0.200, 0.200),  # 200/200 ms
+        "sector": (1.0, 1.0),  # 1/1 s
+        "bulk": (32, 64),  # seconds
+        "lock": (0.05, 0.1),  # 50/100 ms
+        "chip": (4, 11),
+    }
     FEATURES = SerialFlash.FEAT_NONE
 
     @classmethod
@@ -150,6 +152,7 @@ class SpiFlashDevice(_Gen25FlashDevice):
         status = self._read_status()
         if (status & bp_mask) == 0:
             return
+
         debug(f"Flash SR: {status:02X}, disabling block protect")
         if (status & lock_mask) != 0:
             debug("Disabling register lock")
@@ -159,7 +162,11 @@ class SpiFlashDevice(_Gen25FlashDevice):
             status = self._read_status()
             if (status & lock_mask) != 0:
                 raise RuntimeError(f"Unsetting lock bit(s) failed, SR: {status:02X}")
-        self._write_status(status & ~(bp_mask | lock_mask) & unprotect_mask)
+
+        status = status & ~(bp_mask | lock_mask) & unprotect_mask
+        debug(f"Writing SR: {status:02X}")
+        self._write_status(status)
+
         status = self._read_status()
         if (status & bp_mask) != 0:
             raise RuntimeError(f"Block protect couldn't be disabled, SR: {status:02X}")

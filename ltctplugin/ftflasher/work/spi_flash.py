@@ -9,7 +9,7 @@ from ltchiptool.gui.work.base import BaseThread
 from ltchiptool.util.misc import sizeof
 from ltchiptool.util.streams import ClickProgressCallback
 from pyftdi.gpio import GpioAsyncController, GpioSyncController
-from pyftdi.spi import SpiController
+from pyftdi.spi import SpiController, SpiPort
 from pyftdibb.spi import BitBangSpiController
 from spiflash.serialflash import (
     SerialFlash,
@@ -28,6 +28,7 @@ BLOCK_SIZE = 0x1000
 class SpiFlashThread(BaseThread):
     callback: ClickProgressCallback
     spi: SpiController
+    port: SpiPort
     flash: SerialFlash | None
 
     def __init__(
@@ -76,14 +77,14 @@ class SpiFlashThread(BaseThread):
                     return
 
             self.spi.configure(url=self.device, frequency=self.frequency)
-            port = self.spi.get_port(cs=cs)
+            self.port = self.spi.get_port(cs=cs)
 
             SpiFlashDevice.initialize(
                 Path(__file__).parent.with_name("res").joinpath("spi_flash_chips.json")
             )
 
             self.callback.on_message("Checking flash ID...")
-            flash_id = SerialFlashManager.read_jedec_id(port)
+            flash_id = SerialFlashManager.read_jedec_id(self.port)
             if flash_id == b"\xFF\xFF\xFF":
                 flash_id = b"\x00\x00\x00"
             if not any(flash_id):
@@ -91,7 +92,7 @@ class SpiFlashThread(BaseThread):
 
             try:
                 # noinspection PyProtectedMember
-                self.flash = SerialFlashManager._get_flash(port, flash_id)
+                self.flash = SerialFlashManager._get_flash(self.port, flash_id)
             except SerialFlashUnknownJedec as e:
                 if self.operation != SpiOperation.READ_ID:
                     raise e
@@ -102,20 +103,15 @@ class SpiFlashThread(BaseThread):
                 chip_info = f"Flash: {self.flash}"
             self.on_chip_info_summary(chip_info)
 
-            if self.operation == SpiOperation.READ_ID:
-                chip_info = [
-                    ("JEDEC ID", flash_id.hex(" ").upper()),
-                    ("Device", self.flash and str(self.flash) or "Unknown"),
-                ]
-                self.on_chip_info_full(chip_info)
-            else:
-                match self.operation:
-                    case SpiOperation.READ:
-                        self._do_read()
-                    case SpiOperation.WRITE:
-                        self._do_write()
-                    case SpiOperation.ERASE:
-                        self._do_erase()
+            match self.operation:
+                case SpiOperation.READ_ID:
+                    self._do_info(flash_id)
+                case SpiOperation.READ:
+                    self._do_read()
+                case SpiOperation.WRITE:
+                    self._do_write()
+                case SpiOperation.ERASE:
+                    self._do_erase()
 
             self.spi.close()
 
@@ -125,6 +121,35 @@ class SpiFlashThread(BaseThread):
         # noinspection PyProtectedMember
         self.spi._ftdi._readbuffer = None
         self.spi._ftdi._writebuffer_chunksize = None
+
+    def _do_info(self, flash_id: bytes) -> None:
+        # noinspection PyTypeChecker
+        size = len(self.flash)
+
+        self.port.exchange([SpiFlashDevice.CMD_WRITE_DISABLE])
+
+        sr1 = self.port.exchange([0x05], readlen=1)[0]
+        sr2 = self.port.exchange([0x35], readlen=1)[0]
+        sr3 = self.port.exchange([0x15], readlen=1)[0]
+        unique_id = self.port.exchange([0x4B], readlen=8)
+        # sfdp = self.port.exchange([0x5A, 0x00, 0x00, 0x00, 0], readlen=256)
+
+        chip_info = [
+            ("Class Name", type(self.flash).__name__),
+            ("JEDEC ID", flash_id.hex(" ").upper()),
+            ("Unique ID", unique_id.hex(" ").upper() if any(unique_id) else "-"),
+            ("", ""),
+            ("Device", self.flash and str(self.flash) or "Unknown - CAN'T FLASH"),
+            ("Size", f"{size} B / 0x{size:X} / {sizeof(size)}"),
+            ("", ""),
+            ("Status Register 1", f"{sr1:02X} / {sr1:08b}"),
+            (" |- Write In Progress", bool(sr1 & 0x1)),
+            (" |- Write Enable Latch", bool(sr1 & 0x2)),
+            (" |- Block Protection", bool(sr1 & 0b00001100)),
+            ("Status Register 2", f"{sr2:02X} / {sr2:08b}"),
+            ("Status Register 3", f"{sr3:02X} / {sr3:08b}"),
+        ]
+        self.on_chip_info_full(chip_info)
 
     def _do_read(self) -> None:
         if self.should_stop():
@@ -196,6 +221,9 @@ class SpiFlashThread(BaseThread):
         # async mode is super slow
         chunk_size = BLOCK_SIZE if self.mode != FtdiMode.ASYNC else 256
 
+        self.callback.on_message("Unprotecting flash chip...")
+        self.flash.unlock()
+
         try:
             for offset in range(start, end, chunk_size):
                 if (offset % BLOCK_SIZE) == 0:
@@ -212,7 +240,7 @@ class SpiFlashThread(BaseThread):
                 self.callback.on_message(f"Verifying at 0x{offset:X}")
                 readout = self.flash.read(offset, len(chunk))
                 if chunk != readout:
-                    raise RuntimeError(f"Writing failed at 0x{offset:X}")
+                    raise RuntimeError(f"Write verification failed at 0x{offset:X}")
                 self.callback.on_update(len(chunk))
                 if self.should_stop():
                     break
@@ -243,6 +271,9 @@ class SpiFlashThread(BaseThread):
 
         start = self.offset
         end = self.offset + self.length
+
+        self.callback.on_message("Unprotecting flash chip...")
+        self.flash.unlock()
 
         try:
             for offset in range(start, end, BLOCK_SIZE):
