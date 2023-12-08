@@ -203,6 +203,29 @@
 										</object>
 									</object>
 								</object>
+								<object class="sizeritem">
+									<flag>wxEXPAND</flag>
+									<border>5</border>
+									<object class="wxBoxSizer" name="box_sizer_7">
+										<orient>wxHORIZONTAL</orient>
+										<object class="sizeritem">
+											<flag>wxBOTTOM|wxRIGHT|wxLEFT</flag>
+											<border>5</border>
+											<option>1</option>
+											<object class="wxButton" name="button_spi_pinout_soic8">
+												<label>Show pinout (25Qxx, 8-pin SOIC)</label>
+											</object>
+										</object>
+										<object class="sizeritem">
+											<flag>wxBOTTOM|wxRIGHT</flag>
+											<border>5</border>
+											<option>1</option>
+											<object class="wxButton" name="button_spi_pinout_soic16">
+												<label>Show pinout (25Qxx, 16-pin SOIC)</label>
+											</object>
+										</object>
+									</object>
+								</object>
 							</object>
 						</object>
 					</object>

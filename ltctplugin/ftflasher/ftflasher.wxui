@@ -112,7 +112,8 @@
             <node
               class="wxBoxSizer"
               orientation="wxVERTICAL"
-              var_name="page_sizer">
+              var_name="page_sizer"
+              flags="wxEXPAND">
               <node
                 class="wxStaticText"
                 label="Operation"
@@ -146,6 +147,24 @@
                   class="wxRadioButton"
                   label="Erase flash"
                   var_name="radio_spi_erase"
+                  proportion="1" />
+              </node>
+              <node
+                class="wxBoxSizer"
+                var_name="box_sizer_7"
+                borders=""
+                flags="wxEXPAND">
+                <node
+                  class="wxButton"
+                  label="Show pinout (25Qxx, 8-pin SOIC)"
+                  var_name="button_spi_pinout_soic8"
+                  borders="wxBOTTOM|wxRIGHT|wxLEFT"
+                  proportion="1" />
+                <node
+                  class="wxButton"
+                  label="Show pinout (25Qxx, 16-pin SOIC)"
+                  var_name="button_spi_pinout_soic16"
+                  borders="wxBOTTOM|wxRIGHT"
                   proportion="1" />
               </node>
             </node>

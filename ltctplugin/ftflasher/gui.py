@@ -103,13 +103,52 @@ class FlasherPanel(FileDumpBase, DevicesBase):
             SpiOperation.WRITE: self.BindRadioButton("radio_spi_write"),
             SpiOperation.ERASE: self.BindRadioButton("radio_spi_erase"),
         }
+        self.BindButton(
+            "button_spi_pinout_soic8",
+            self.GetOnPinoutClick(
+                "25Qxx, SOIC 8-pin",
+                {
+                    1: "^CS",
+                    2: "MISO/DO",
+                    3: "^WP",
+                    4: "GND",
+                    5: "DI/MOSI",
+                    6: "CLK/SCK",
+                    7: "^HOLD",
+                    8: "VCC",
+                },
+            ),
+        )
+        self.BindButton(
+            "button_spi_pinout_soic16",
+            self.GetOnPinoutClick(
+                "25Qxx, SOIC 16-pin",
+                {
+                    1: "^HOLD",
+                    2: "VCC",
+                    3: "^RESET",
+                    7: "^CS",
+                    8: "MISO/DO",
+                    9: "^WP",
+                    10: "GND",
+                    15: "DI/MOSI",
+                    16: "CLK/SCK",
+                },
+            ),
+        )
 
         page_bk72xx: wx.NotebookPage = self.BindWindow("page_bk72xx")
         self.Bk72xxGpio = GpioChooserPanel(
             parent=page_bk72xx,
             frame=frame,
             names=["sck", "mosi", "miso", "cs", "cen"],
-            labels=["TCK / F_SCK", "TDI / F_SI", "TDO / F_SO", "TMS / F_CS", "CEN"],
+            labels=[
+                "TCK / F_SCK / P20",
+                "TDI / F_SI / P22",
+                "TDO / F_SO / P23",
+                "TMS / F_CS / P21",
+                "CEN",
+            ],
             default=[SCK, MOSI, MISO, CS0, 4],
         )
         page_bk72xx.GetSizer().Insert(0, self.Bk72xxGpio, flag=wx.EXPAND)
@@ -258,12 +297,10 @@ class FlasherPanel(FileDumpBase, DevicesBase):
             self.LengthText.SetLabel("Reading length")
             if not self.file:
                 errors.append("Choose an output file")
-            self.skip = 0
         elif erasing:
             if self.length and self.length % 0x1000:
                 errors.append(f"Length (0x{self.length:X}) is not 4 KiB-aligned")
             self.LengthText.SetLabel("Erasing length")
-            self.skip = 0
 
         if not self.device:
             errors.append("Choose a correct device")
@@ -294,6 +331,10 @@ class FlasherPanel(FileDumpBase, DevicesBase):
         self.Cancel.Disable()
 
     def OnDevicesUpdated(self) -> None:
+        if self.IsAnyWorkRunning():
+            # can't query USB devices while they're being accessed
+            return
+
         UsbTools.flush_cache()
         devices = []
         for desc, if_count in Ftdi.list_devices():
@@ -413,7 +454,7 @@ class FlasherPanel(FileDumpBase, DevicesBase):
     @frequency.setter
     def frequency(self, value: int) -> None:
         for button, speeds in self.Frequency.items():
-            if value in speeds.values():
+            if value == speeds[self.mode]:
                 button.SetValue(True)
                 return
 
@@ -545,6 +586,46 @@ class FlasherPanel(FileDumpBase, DevicesBase):
     @on_event
     def OnCancelClick(self):
         self.StopWork(type(self.work))
+
+    def GetOnPinoutClick(self, title: str, pinout: dict[int, str]):
+        def OnClick(*_) -> None:
+            pin_count = max(pinout.keys())
+            assert (pin_count % 2) == 0
+
+            inner_size = pin_count // 4 + 1
+            pins = [
+                (pinout.get(i + 1, ""), pinout.get(pin_count - i, ""))
+                for i in range(0, pin_count // 2)
+            ]
+            max_len = max(len(left) for left, right in pins)
+
+            total_len = 50
+            header = "+" + "-" * inner_size + r"\/" + "-" * inner_size + "+"
+            footer = "+-" + "-" * inner_size * 2 + "-+"
+
+            lines = [
+                title.center(total_len),
+                "",
+                header.center(total_len),
+            ]
+            for i, (left, right) in enumerate(pins):
+                line = (
+                    left.rjust(max_len)
+                    + (" -| " if left else "  | ")
+                    + str(i + 1).ljust(inner_size)
+                    + str(pin_count - i).rjust(inner_size)
+                    + (" |- " if right else " |  ")
+                    + right.ljust(max_len)
+                )
+                lines.append(line.center(total_len))
+            lines.append(footer.center(total_len))
+
+            self.MessageDialogMonospace(
+                message="\n".join(lines),
+                caption="Pinout",
+            )
+
+        return OnClick
 
     @property
     def spi_gpio(self) -> dict[str, int]:
